@@ -90,21 +90,7 @@
       "tech": ["ESP32-S3", "Zigbee 3.0", "Matter Protocol", "MQTT", "Node-RED"],
       "highlights": ["100+ device support", "Local-first processing", "Alexa & Google Home ready", "OTA via AWS"]
     },
-    {
-      "cat": "pcb",
-      "emoji": "🔋",
-      "tag": "PCB · Firmware",
-      "name": "EV Charge Controller",
-      "bg": "bg-red-100",
-      "client": "GreenVolt EV",
-      "duration": "4 months",
-      "status": "Field Testing",
-      "img": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80",
-      "link": "https://github.com/circuitforge/ev-charge-controller",
-      "desc": "A 22kW AC onboard charger PCB with accompanying BMS firmware for a 2-wheeler EV. Includes CCS2 communication, thermal management, and real-time SoC estimation.",
-      "tech": ["Altium Designer", "STM32F4", "CCS2 Protocol", "CAN Bus", "Python BMS Sim"],
-      "highlights": ["22kW peak charge power", "±1% SoC accuracy", "IEC 61851 compliant", "Full BMS + charger integration"]
-    },
+    
     {
       "cat": "idea",
       "emoji": "🚦",
