@@ -23,35 +23,22 @@
     }
   </script>
   <style>
-    * {
-      font-family: 'Inter', sans-serif;
-    }
+    * { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; }
+    .hero-section { background-color: #cfe2f3; }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    .hero-section {
-      background-color: #cfe2f3;
-    }
-
-    /* ── Generic modal overlay ── */
     .modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.55);
+      background: rgba(0,0,0,0.55);
       z-index: 999;
       align-items: center;
       justify-content: center;
       padding: 16px;
     }
+    .modal-overlay.open { display: flex; }
 
-    .modal-overlay.open {
-      display: flex;
-    }
-
-    /* ── Contact modal specifics ── */
     .contact-left {
       background: linear-gradient(160deg, #1e3a8a 0%, #1e40af 100%);
     }
@@ -67,10 +54,7 @@
       transition: border-color .2s;
       color: #0f172a;
     }
-
-    .cf-input:focus {
-      border-color: #2563EB;
-    }
+    .cf-input:focus { border-color: #2563EB; }
 
     .cf-select {
       width: 100%;
@@ -88,10 +72,7 @@
       background-position: right 14px center;
       padding-right: 36px;
     }
-
-    .cf-select:focus {
-      border-color: #2563EB;
-    }
+    .cf-select:focus { border-color: #2563EB; }
 
     .cf-textarea {
       width: 100%;
@@ -106,12 +87,8 @@
       min-height: 110px;
       color: #0f172a;
     }
+    .cf-textarea:focus { border-color: #2563EB; }
 
-    .cf-textarea:focus {
-      border-color: #2563EB;
-    }
-
-    /* service modal check pills */
     .check-pill {
       border: 1.5px solid #e2e8f0;
       border-radius: 12px;
@@ -121,14 +98,63 @@
       gap: 9px;
       font-size: 0.85rem;
     }
+
+    /* Lightbox */
+    #pm-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+    }
+    #pm-lightbox.open { display: flex; }
+    #pm-lb-img {
+      max-width: 94vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 60px rgba(0,0,0,0.7);
+      cursor: default;
+      user-select: none;
+    }
+    #pm-lb-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: white;
+      font-size: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      backdrop-filter: blur(6px);
+      transition: background .2s;
+    }
+    #pm-lb-close:hover { background: rgba(255,255,255,0.25); }
+    #pm-lb-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.45);
+      font-size: 12px;
+      pointer-events: none;
+      white-space: nowrap;
+    }
   </style>
 </head>
 
 <body class="bg-white text-slate-900 overflow-x-hidden">
 
-  <!-- ══════════════════════════════════
-     NAV
-══════════════════════════════════ -->
+  <!-- NAV -->
   <nav class="sticky top-0 z-50 bg-white border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="#home" class="flex items-center gap-2 no-underline">
@@ -164,9 +190,7 @@
     </div>
   </nav>
 
-  <!-- ══════════════════════════════════
-     HERO
-══════════════════════════════════ -->
+  <!-- HERO -->
   <section id="home" class="hero-section min-h-[88vh] flex items-center px-6 py-20">
     <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <div>
@@ -192,58 +216,58 @@
           <rect x="30" y="20" width="460" height="380" rx="28" fill="white" opacity="0.7" />
           <rect x="70" y="60" width="380" height="260" rx="12" fill="#1e3a5f" opacity="0.92" />
           <g stroke="#2d5a8f" stroke-width="0.7" opacity="0.5">
-            <line x1="110" y1="60" x2="110" y2="320" /><line x1="150" y1="60" x2="150" y2="320" /><line x1="190" y1="60" x2="190" y2="320" /><line x1="230" y1="60" x2="230" y2="320" /><line x1="270" y1="60" x2="270" y2="320" /><line x1="310" y1="60" x2="310" y2="320" /><line x1="350" y1="60" x2="350" y2="320" /><line x1="390" y1="60" x2="390" y2="320" /><line x1="70" y1="100" x2="450" y2="100" /><line x1="70" y1="140" x2="450" y2="140" /><line x1="70" y1="180" x2="450" y2="180" /><line x1="70" y1="220" x2="450" y2="220" /><line x1="70" y1="260" x2="450" y2="260" />
+            <line x1="110" y1="60" x2="110" y2="320"/><line x1="150" y1="60" x2="150" y2="320"/><line x1="190" y1="60" x2="190" y2="320"/><line x1="230" y1="60" x2="230" y2="320"/><line x1="270" y1="60" x2="270" y2="320"/><line x1="310" y1="60" x2="310" y2="320"/><line x1="350" y1="60" x2="350" y2="320"/><line x1="390" y1="60" x2="390" y2="320"/><line x1="70" y1="100" x2="450" y2="100"/><line x1="70" y1="140" x2="450" y2="140"/><line x1="70" y1="180" x2="450" y2="180"/><line x1="70" y1="220" x2="450" y2="220"/><line x1="70" y1="260" x2="450" y2="260"/>
           </g>
           <g stroke="#f59e0b" stroke-width="2.5" fill="none" opacity="0.9">
-            <path d="M130 190 L130 150 L200 150" /><path d="M200 150 L240 150 L240 110 L320 110" /><path d="M320 110 L360 110 L360 150 L400 150" /><path d="M130 190 L130 230 L180 230 L180 270 L280 270" /><path d="M280 270 L340 270 L340 230 L400 230" /><path d="M400 150 L400 190 L370 190" /><path d="M370 190 L370 230 L400 230" /><path d="M240 190 L240 230" /><path d="M160 110 L160 150 L130 150 L130 190" />
+            <path d="M130 190 L130 150 L200 150"/><path d="M200 150 L240 150 L240 110 L320 110"/><path d="M320 110 L360 110 L360 150 L400 150"/><path d="M130 190 L130 230 L180 230 L180 270 L280 270"/><path d="M280 270 L340 270 L340 230 L400 230"/><path d="M400 150 L400 190 L370 190"/><path d="M370 190 L370 230 L400 230"/><path d="M240 190 L240 230"/><path d="M160 110 L160 150 L130 150 L130 190"/>
           </g>
           <g fill="#f59e0b" opacity="0.9">
-            <circle cx="130" cy="190" r="5" /><circle cx="200" cy="150" r="4" /><circle cx="240" cy="150" r="4" /><circle cx="320" cy="110" r="4" /><circle cx="360" cy="150" r="4" /><circle cx="400" cy="150" r="5" /><circle cx="400" cy="230" r="5" /><circle cx="340" cy="270" r="4" /><circle cx="280" cy="270" r="4" /><circle cx="180" cy="230" r="4" /><circle cx="240" cy="230" r="4" /><circle cx="370" cy="190" r="4" />
+            <circle cx="130" cy="190" r="5"/><circle cx="200" cy="150" r="4"/><circle cx="240" cy="150" r="4"/><circle cx="320" cy="110" r="4"/><circle cx="360" cy="150" r="4"/><circle cx="400" cy="150" r="5"/><circle cx="400" cy="230" r="5"/><circle cx="340" cy="270" r="4"/><circle cx="280" cy="270" r="4"/><circle cx="180" cy="230" r="4"/><circle cx="240" cy="230" r="4"/><circle cx="370" cy="190" r="4"/>
           </g>
-          <rect x="195" y="155" width="90" height="90" rx="6" fill="#0f172a" stroke="#3b82f6" stroke-width="2" />
-          <rect x="205" y="165" width="70" height="70" rx="4" fill="#1e293b" />
+          <rect x="195" y="155" width="90" height="90" rx="6" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+          <rect x="205" y="165" width="70" height="70" rx="4" fill="#1e293b"/>
           <text x="240" y="196" text-anchor="middle" fill="#60a5fa" font-size="8" font-family="monospace" font-weight="bold">STM32</text>
           <text x="240" y="209" text-anchor="middle" fill="#94a3b8" font-size="6.5" font-family="monospace">MCU</text>
           <text x="240" y="222" text-anchor="middle" fill="#475569" font-size="5.5" font-family="monospace">ARM Cortex-M4</text>
           <g fill="#f59e0b">
-            <rect x="190" y="163" width="5" height="3" rx="1" /><rect x="190" y="172" width="5" height="3" rx="1" /><rect x="190" y="181" width="5" height="3" rx="1" /><rect x="190" y="190" width="5" height="3" rx="1" /><rect x="190" y="199" width="5" height="3" rx="1" /><rect x="190" y="208" width="5" height="3" rx="1" /><rect x="190" y="217" width="5" height="3" rx="1" /><rect x="285" y="163" width="5" height="3" rx="1" /><rect x="285" y="172" width="5" height="3" rx="1" /><rect x="285" y="181" width="5" height="3" rx="1" /><rect x="285" y="190" width="5" height="3" rx="1" /><rect x="285" y="199" width="5" height="3" rx="1" /><rect x="285" y="208" width="5" height="3" rx="1" /><rect x="285" y="217" width="5" height="3" rx="1" /><rect x="203" y="150" width="3" height="5" rx="1" /><rect x="212" y="150" width="3" height="5" rx="1" /><rect x="221" y="150" width="3" height="5" rx="1" /><rect x="230" y="150" width="3" height="5" rx="1" /><rect x="239" y="150" width="3" height="5" rx="1" /><rect x="248" y="150" width="3" height="5" rx="1" /><rect x="257" y="150" width="3" height="5" rx="1" /><rect x="266" y="150" width="3" height="5" rx="1" /><rect x="203" y="245" width="3" height="5" rx="1" /><rect x="212" y="245" width="3" height="5" rx="1" /><rect x="221" y="245" width="3" height="5" rx="1" /><rect x="230" y="245" width="3" height="5" rx="1" /><rect x="239" y="245" width="3" height="5" rx="1" /><rect x="248" y="245" width="3" height="5" rx="1" /><rect x="257" y="245" width="3" height="5" rx="1" /><rect x="266" y="245" width="3" height="5" rx="1" />
+            <rect x="190" y="163" width="5" height="3" rx="1"/><rect x="190" y="172" width="5" height="3" rx="1"/><rect x="190" y="181" width="5" height="3" rx="1"/><rect x="190" y="190" width="5" height="3" rx="1"/><rect x="190" y="199" width="5" height="3" rx="1"/><rect x="190" y="208" width="5" height="3" rx="1"/><rect x="190" y="217" width="5" height="3" rx="1"/><rect x="285" y="163" width="5" height="3" rx="1"/><rect x="285" y="172" width="5" height="3" rx="1"/><rect x="285" y="181" width="5" height="3" rx="1"/><rect x="285" y="190" width="5" height="3" rx="1"/><rect x="285" y="199" width="5" height="3" rx="1"/><rect x="285" y="208" width="5" height="3" rx="1"/><rect x="285" y="217" width="5" height="3" rx="1"/><rect x="203" y="150" width="3" height="5" rx="1"/><rect x="212" y="150" width="3" height="5" rx="1"/><rect x="221" y="150" width="3" height="5" rx="1"/><rect x="230" y="150" width="3" height="5" rx="1"/><rect x="239" y="150" width="3" height="5" rx="1"/><rect x="248" y="150" width="3" height="5" rx="1"/><rect x="257" y="150" width="3" height="5" rx="1"/><rect x="266" y="150" width="3" height="5" rx="1"/><rect x="203" y="245" width="3" height="5" rx="1"/><rect x="212" y="245" width="3" height="5" rx="1"/><rect x="221" y="245" width="3" height="5" rx="1"/><rect x="230" y="245" width="3" height="5" rx="1"/><rect x="239" y="245" width="3" height="5" rx="1"/><rect x="248" y="245" width="3" height="5" rx="1"/><rect x="257" y="245" width="3" height="5" rx="1"/><rect x="266" y="245" width="3" height="5" rx="1"/>
           </g>
-          <rect x="330" y="85" width="55" height="45" rx="5" fill="#0f172a" stroke="#10b981" stroke-width="1.5" />
+          <rect x="330" y="85" width="55" height="45" rx="5" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
           <text x="357" y="104" text-anchor="middle" fill="#34d399" font-size="7" font-family="monospace" font-weight="bold">ESP32</text>
           <text x="357" y="118" text-anchor="middle" fill="#6ee7b7" font-size="5.5" font-family="monospace">Wi-Fi/BLE</text>
           <g stroke="#10b981" stroke-width="1.8" fill="none" opacity="0.8">
-            <path d="M357 75 Q357 68 350 63" /><path d="M357 75 Q364 68 364 61" /><path d="M357 75 Q357 62 344 56" /><path d="M357 75 Q357 62 370 56" />
+            <path d="M357 75 Q357 68 350 63"/><path d="M357 75 Q364 68 364 61"/><path d="M357 75 Q357 62 344 56"/><path d="M357 75 Q357 62 370 56"/>
           </g>
-          <circle cx="357" cy="75" r="2.5" fill="#10b981" />
+          <circle cx="357" cy="75" r="2.5" fill="#10b981"/>
           <g fill="#475569" stroke="#64748b" stroke-width="1">
-            <rect x="105" y="100" width="14" height="22" rx="3" /><rect x="125" y="100" width="14" height="22" rx="3" /><rect x="105" y="270" width="14" height="22" rx="3" /><rect x="125" y="270" width="14" height="22" rx="3" />
+            <rect x="105" y="100" width="14" height="22" rx="3"/><rect x="125" y="100" width="14" height="22" rx="3"/><rect x="105" y="270" width="14" height="22" rx="3"/><rect x="125" y="270" width="14" height="22" rx="3"/>
           </g>
           <g fill="#94a3b8">
-            <rect x="108" y="95" width="8" height="5" rx="1" /><rect x="128" y="95" width="8" height="5" rx="1" /><rect x="108" y="292" width="8" height="5" rx="1" /><rect x="128" y="292" width="8" height="5" rx="1" />
+            <rect x="108" y="95" width="8" height="5" rx="1"/><rect x="128" y="95" width="8" height="5" rx="1"/><rect x="108" y="292" width="8" height="5" rx="1"/><rect x="128" y="292" width="8" height="5" rx="1"/>
           </g>
-          <rect x="370" y="245" width="52" height="32" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" />
+          <rect x="370" y="245" width="52" height="32" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
           <text x="396" y="263" text-anchor="middle" fill="#fbbf24" font-size="6.5" font-family="monospace">3.3V LDO</text>
           <g fill="#f59e0b">
-            <rect x="375" y="277" width="5" height="8" rx="1" /><rect x="385" y="277" width="5" height="8" rx="1" /><rect x="395" y="277" width="5" height="8" rx="1" /><rect x="405" y="277" width="5" height="8" rx="1" />
+            <rect x="375" y="277" width="5" height="8" rx="1"/><rect x="385" y="277" width="5" height="8" rx="1"/><rect x="395" y="277" width="5" height="8" rx="1"/><rect x="405" y="277" width="5" height="8" rx="1"/>
           </g>
-          <rect x="58" y="168" width="18" height="28" rx="9" fill="#334155" stroke="#64748b" stroke-width="1.5" />
-          <rect x="63" y="173" width="8" height="18" rx="4" fill="#1e293b" />
+          <rect x="58" y="168" width="18" height="28" rx="9" fill="#334155" stroke="#64748b" stroke-width="1.5"/>
+          <rect x="63" y="173" width="8" height="18" rx="4" fill="#1e293b"/>
           <text x="67" y="209" text-anchor="middle" fill="#94a3b8" font-size="5" font-family="monospace">USB-C</text>
-          <circle cx="420" cy="90" r="6" fill="#ef4444" opacity="0.9" />
-          <circle cx="436" cy="90" r="6" fill="#22c55e" opacity="0.9" />
-          <circle cx="420" cy="90" r="3" fill="#fca5a5" opacity="0.6" />
-          <circle cx="436" cy="90" r="3" fill="#86efac" opacity="0.6" />
-          <rect x="310" y="290" width="90" height="26" rx="13" fill="#2563eb" />
+          <circle cx="420" cy="90" r="6" fill="#ef4444" opacity="0.9"/>
+          <circle cx="436" cy="90" r="6" fill="#22c55e" opacity="0.9"/>
+          <circle cx="420" cy="90" r="3" fill="#fca5a5" opacity="0.6"/>
+          <circle cx="436" cy="90" r="3" fill="#86efac" opacity="0.6"/>
+          <rect x="310" y="290" width="90" height="26" rx="13" fill="#2563eb"/>
           <text x="355" y="307" text-anchor="middle" fill="white" font-size="9" font-family="Inter, sans-serif" font-weight="600">IoT Ready ✓</text>
-          <rect x="90" y="330" width="60" height="24" rx="12" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+          <rect x="90" y="330" width="60" height="24" rx="12" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5"/>
           <text x="120" y="346" text-anchor="middle" fill="#60a5fa" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">FreeRTOS</text>
-          <rect x="200" y="330" width="70" height="24" rx="12" fill="#f59e0b" />
+          <rect x="200" y="330" width="70" height="24" rx="12" fill="#f59e0b"/>
           <text x="235" y="346" text-anchor="middle" fill="#1e293b" font-size="8.5" font-family="Inter, sans-serif" font-weight="700">8-Layer PCB</text>
-          <rect x="32" y="345" width="140" height="44" rx="12" fill="white" opacity="0.95" style="filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1))" />
+          <rect x="32" y="345" width="140" height="44" rx="12" fill="white" opacity="0.95" style="filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1))"/>
           <text x="48" y="365" fill="#2563eb" font-size="16" font-family="Inter, sans-serif" font-weight="800">50+</text>
           <text x="72" y="365" fill="#0f172a" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">Projects</text>
           <text x="72" y="378" fill="#64748b" font-size="7.5" font-family="Inter, sans-serif">Shipped to market</text>
-          <rect x="348" y="345" width="140" height="44" rx="12" fill="white" opacity="0.95" style="filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1))" />
+          <rect x="348" y="345" width="140" height="44" rx="12" fill="white" opacity="0.95" style="filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1))"/>
           <text x="364" y="365" fill="#10b981" font-size="16" font-family="Inter, sans-serif" font-weight="800">100%</text>
           <text x="410" y="365" fill="#0f172a" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">On-time</text>
           <text x="410" y="378" fill="#64748b" font-size="7.5" font-family="Inter, sans-serif">Delivery rate</text>
@@ -252,9 +276,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-     SERVICES
-══════════════════════════════════ -->
+  <!-- SERVICES -->
   <section id="services" class="bg-white px-6 py-24">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-14">
@@ -302,9 +324,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-     PORTFOLIO
-══════════════════════════════════ -->
+  <!-- PORTFOLIO -->
   <section id="portfolio" class="bg-slate-50 px-6 py-24">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
@@ -324,9 +344,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-     ABOUT
-══════════════════════════════════ -->
+  <!-- ABOUT -->
   <section id="about" class="bg-white px-6 py-24">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <div class="bg-slate-100 rounded-2xl p-16 grid grid-cols-2 gap-10 place-items-center">
@@ -339,7 +357,7 @@
           More Than Just Services —<br /><span class="text-brand">We Engineer Products.</span>
         </h2>
         <p class="text-slate-500 text-sm leading-relaxed mb-8">CircuitForge is an embedded systems startup helping innovators turn ideas into real, manufacturable hardware. From schematic to shipment, we bring deep expertise across embedded firmware, PCB design, and IoT.</p>
-        <p class="font-bold text-base mb-5">Our Mission & Values</p>
+        <p class="font-bold text-base mb-5">Our Mission &amp; Values</p>
         <div class="flex flex-col gap-4 mb-8">
           <div class="flex gap-3 items-start">
             <div class="w-3 h-3 rounded-full bg-brand flex-shrink-0 mt-1"></div>
@@ -359,9 +377,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-     CONTACT SECTION
-══════════════════════════════════ -->
+  <!-- CONTACT SECTION -->
   <section id="contact" class="bg-slate-50 px-6 py-24">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
@@ -377,27 +393,27 @@
           </div>
           <div class="flex flex-col gap-4 text-sm">
             <div class="flex items-center gap-3 text-slate-200">
-              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
               <span>+91 9266863816 / +91 8368274628</span>
             </div>
             <div class="flex items-center gap-3 text-slate-200">
-              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               <span>hello@circuitforge.dev</span>
             </div>
             <div class="flex items-center gap-3 text-slate-200">
-              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               <span>New Delhi, India</span>
             </div>
           </div>
           <div class="flex gap-4 mt-2">
             <a href="#" class="text-slate-300 hover:text-white no-underline">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" /></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
             <a href="#" class="text-slate-300 hover:text-white no-underline">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path fill="white" d="M12 7a5 5 0 100 10A5 5 0 0012 7zm0 8a3 3 0 110-6 3 3 0 010 6zm4.5-8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" /></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path fill="white" d="M12 7a5 5 0 100 10A5 5 0 0012 7zm0 8a3 3 0 110-6 3 3 0 010 6zm4.5-8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>
             </a>
             <a href="#" class="text-slate-300 hover:text-white no-underline">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
             </a>
           </div>
         </div>
@@ -405,11 +421,11 @@
           <div id="secSuccess" class="hidden mb-4 bg-green-50 border border-green-200 text-green-700 rounded-xl p-3 text-sm font-medium">✅ Message sent! We'll get back to you within 24 hours.</div>
           <div id="secError" class="hidden mb-4 bg-red-50 border border-red-200 text-red-700 rounded-xl p-3 text-sm font-medium">❌ Something went wrong. Please try again.</div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Your Name</label><input id="sec_name" type="text" placeholder="Full name" class="cf-input" /></div>
-            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Email</label><input id="sec_email" type="email" placeholder="Email address" class="cf-input" /></div>
+            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Your Name</label><input id="sec_name" type="text" placeholder="Full name" class="cf-input"/></div>
+            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Email</label><input id="sec_email" type="email" placeholder="Email address" class="cf-input"/></div>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Phone</label><input id="sec_phone" type="tel" placeholder="Optional" class="cf-input" /></div>
+            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Phone</label><input id="sec_phone" type="tel" placeholder="Optional" class="cf-input"/></div>
             <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Preferred Contact</label>
               <select id="sec_contact" class="cf-select"><option value="">Select</option><option>Email</option><option>Phone</option><option>WhatsApp</option></select>
             </div>
@@ -422,7 +438,7 @@
             <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Budget</label>
               <select id="sec_budget" class="cf-select"><option value="">-- Select Budget --</option><option>Under ₹50K</option><option>₹50K – ₹2L</option><option>₹2L – ₹5L</option><option>₹5L+</option></select>
             </div>
-            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Timeline</label><input id="sec_timeline" type="text" placeholder="e.g. 2 weeks, 1 month" class="cf-input" /></div>
+            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Timeline</label><input id="sec_timeline" type="text" placeholder="e.g. 2 weeks, 1 month" class="cf-input"/></div>
           </div>
           <div class="mb-5">
             <label class="block text-xs font-semibold text-slate-700 mb-1.5">Project Description</label>
@@ -434,14 +450,12 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-     FOOTER
-══════════════════════════════════ -->
+  <!-- FOOTER -->
   <section id="footer" class="bg-slate-900 px-6 py-20">
     <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-10 mb-10">
       <div>
         <div class="flex items-center gap-2 font-bold text-lg mb-2 text-white">
-          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="3" /><path d="M8 12h8M12 8v8" stroke-linecap="round" /></svg>
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M8 12h8M12 8v8" stroke-linecap="round"/></svg>
           CircuitForge
         </div>
         <p class="text-slate-400 text-sm mb-4">Where Ideas Become Hardware</p>
@@ -476,9 +490,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-     CONTACT MODAL
-══════════════════════════════════ -->
+  <!-- CONTACT MODAL -->
   <div id="modal-contact" class="modal-overlay" onclick="closeOutside(event,'modal-contact')">
     <div class="bg-white rounded-2xl overflow-hidden w-full max-w-3xl shadow-2xl max-h-[95vh] overflow-y-auto grid grid-cols-1 md:grid-cols-[1fr_1.4fr]">
       <div class="contact-left text-white p-8 flex flex-col gap-6">
@@ -488,22 +500,22 @@
         </div>
         <div class="flex flex-col gap-4 text-sm">
           <div class="flex items-center gap-3 text-slate-200">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
             <span>+91 9266863816 / +91 8368274628</span>
           </div>
           <div class="flex items-center gap-3 text-slate-200">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             <span>hello@circuitforge.dev</span>
           </div>
           <div class="flex items-center gap-3 text-slate-200">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             <span>New Delhi, India</span>
           </div>
         </div>
         <div class="flex gap-4 mt-2">
-          <a href="#" class="text-slate-300 hover:text-white transition-colors no-underline"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" /></svg></a>
-          <a href="#" class="text-slate-300 hover:text-white transition-colors no-underline"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path fill="white" d="M12 7a5 5 0 100 10A5 5 0 0012 7zm0 8a3 3 0 110-6 3 3 0 010 6zm4.5-8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" /></svg></a>
-          <a href="#" class="text-slate-300 hover:text-white transition-colors no-underline"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg></a>
+          <a href="#" class="text-slate-300 hover:text-white transition-colors no-underline"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="text-slate-300 hover:text-white transition-colors no-underline"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path fill="white" d="M12 7a5 5 0 100 10A5 5 0 0012 7zm0 8a3 3 0 110-6 3 3 0 010 6zm4.5-8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg></a>
+          <a href="#" class="text-slate-300 hover:text-white transition-colors no-underline"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
         </div>
       </div>
       <div class="p-6 sm:p-8 bg-white">
@@ -514,11 +526,11 @@
         <div id="cfSuccess" class="hidden mb-4 bg-green-50 border border-green-200 text-green-700 rounded-xl p-3 text-sm font-medium">✅ Message sent! We'll get back to you within 24 hours.</div>
         <div id="cfError" class="hidden mb-4 bg-red-50 border border-red-200 text-red-700 rounded-xl p-3 text-sm font-medium">❌ Something went wrong. Please try again.</div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Your Name</label><input id="cf_name" type="text" placeholder="Full name" class="cf-input" /></div>
-          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Email</label><input id="cf_email" type="email" placeholder="Email address" class="cf-input" /></div>
+          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Your Name</label><input id="cf_name" type="text" placeholder="Full name" class="cf-input"/></div>
+          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Email</label><input id="cf_email" type="email" placeholder="Email address" class="cf-input"/></div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Phone</label><input id="cf_phone" type="tel" placeholder="Optional" class="cf-input" /></div>
+          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Phone</label><input id="cf_phone" type="tel" placeholder="Optional" class="cf-input"/></div>
           <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Preferred Contact</label>
             <select id="cf_contact" class="cf-select"><option value="">Select</option><option>Email</option><option>Phone</option><option>WhatsApp</option></select>
           </div>
@@ -531,7 +543,7 @@
           <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Budget</label>
             <select id="cf_budget" class="cf-select"><option value="">-- Select Budget --</option><option>Under ₹50K</option><option>₹50K – ₹2L</option><option>₹2L – ₹5L</option><option>₹5L+</option></select>
           </div>
-          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Timeline</label><input id="cf_timeline" type="text" placeholder="e.g. 2 weeks, 1 month" class="cf-input" /></div>
+          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Timeline</label><input id="cf_timeline" type="text" placeholder="e.g. 2 weeks, 1 month" class="cf-input"/></div>
         </div>
         <div class="mb-5">
           <label class="block text-xs font-semibold text-slate-700 mb-1.5">Project Description</label>
@@ -557,12 +569,12 @@
         <p class="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto">Have a product idea but no hardware team? We become your engineering partner — translating your vision into schematics, prototypes, firmware, and production-ready devices.</p>
       </div>
       <div class="grid grid-cols-2 gap-3 mb-7">
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Concept & Feasibility Study</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Schematic & PCB Design</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Firmware Development</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Prototype Manufacturing</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Testing & Certification</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Pilot Production Support</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Product Requirement Analysis</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Circuit Design &amp; Simulation</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Component Selection</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> PCB Design &amp; Prototyping</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Hardware Testing &amp; Validation</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Manufacturing Support</div>
       </div>
       <button onclick="closeModal('modal-idea');openContact();" class="w-full text-center bg-brand text-white font-semibold py-4 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire Us For This →</button>
     </div>
@@ -582,7 +594,7 @@
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Custom Dashboards</div>
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Mobile App Connectivity</div>
         <div class="check-pill"><span class="text-brand font-bold">✓</span> OTA Firmware Updates</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Data Analytics</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Data Analytics Dashboards</div>
       </div>
       <button onclick="closeModal('modal-iot');openContact();" class="w-full text-center bg-brand text-white font-semibold py-4 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire Us For This →</button>
     </div>
@@ -597,12 +609,12 @@
         <p class="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto">Professional schematic capture and multilayer PCB layout — 2-layer to high-speed RF designs. Every board reviewed for DFM/DFA, delivered with Gerbers, BOM, and assembly files.</p>
       </div>
       <div class="grid grid-cols-2 gap-3 mb-7">
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Schematic Capture</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Multilayer PCB Layout</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> High-Speed & RF Design</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> DFM / DFA Review</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Gerber & BOM Delivery</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Manufacturing Support</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Schematic Design</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> PCB Layout Design</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Multi-Layer PCB Design</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Gerber File Generation</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Design Verification</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Prototype Support</div>
       </div>
       <button onclick="closeModal('modal-pcb');openContact();" class="w-full text-center bg-brand text-white font-semibold py-4 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire Us For This →</button>
     </div>
@@ -614,23 +626,37 @@
       <div class="text-center mb-7">
         <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">⚙️</div>
         <h3 class="font-extrabold text-2xl mb-3">Embedded Solution</h3>
-        <p class="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto">Robust firmware for STM32, ESP32, Nordic, PIC, and Linux platforms. Bare-metal & RTOS code, custom drivers and protocol stacks, tuned for low power.</p>
+        <p class="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto">Robust firmware for STM32, ESP32, Nordic, PIC, and Linux platforms. Bare-metal &amp; RTOS code, custom drivers and protocol stacks, tuned for low power.</p>
       </div>
       <div class="grid grid-cols-2 gap-3 mb-7">
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Bare-metal & RTOS Firmware</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Firmware Development</div>
         <div class="check-pill"><span class="text-brand font-bold">✓</span> STM32, ESP32, Nordic, PIC</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Driver & Protocol Development</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Low-Power Optimization</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Linux / Yocto BSP</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Production-Ready Code</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Microcontroller-Based System Design</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Microprocessor-Based Solutions</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Sensor &amp; Peripheral Integration</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Communication Protocol Development (UART, SPI, I²C, CAN, USB)</div>
       </div>
       <button onclick="closeModal('modal-embedded');openContact();" class="w-full text-center bg-brand text-white font-semibold py-4 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire Us For This →</button>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════
-     JS
-══════════════════════════════════ -->
+  <!-- FULLSCREEN IMAGE LIGHTBOX -->
+  <div id="pm-lightbox" onclick="if(event.target===this)pmCloseFull()">
+    <img id="pm-lb-img" alt="Full size project image" />
+    <button id="pm-lb-close" onclick="pmCloseFull()" aria-label="Close fullscreen">×</button>
+    <!-- Prev / Next in lightbox -->
+    <button id="pm-lb-prev" onclick="pmLbSlide(-1)"
+      style="position:absolute;left:20px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:none;color:white;font-size:28px;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);transition:background .2s;"
+      onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'"
+      aria-label="Previous image">&#8249;</button>
+    <button id="pm-lb-next" onclick="pmLbSlide(1)"
+      style="position:absolute;right:20px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:none;color:white;font-size:28px;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);transition:background .2s;"
+      onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'"
+      aria-label="Next image">&#8250;</button>
+    <div id="pm-lb-caption"></div>
+  </div>
+
+  <!-- JS -->
   <script>
     const WEB3FORMS_KEY = "92324d0e-339e-4e72-ab32-a8ca4d18485f";
 
@@ -688,8 +714,19 @@
     function openModal(k) { document.getElementById('modal-' + k).classList.add('open'); document.body.style.overflow = 'hidden'; }
     function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
     function closeOutside(e, id) { if (e.target === document.getElementById(id)) closeModal(id); }
+
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(m => { m.classList.remove('open'); document.body.style.overflow = ''; });
+      if (e.key === 'Escape') {
+        // Close lightbox first if open, then modals
+        const lb = document.getElementById('pm-lightbox');
+        if (lb.classList.contains('open')) { pmCloseFull(); return; }
+        document.querySelectorAll('.modal-overlay.open').forEach(m => { m.classList.remove('open'); document.body.style.overflow = ''; });
+      }
+      // Arrow key navigation in lightbox
+      if (document.getElementById('pm-lightbox').classList.contains('open')) {
+        if (e.key === 'ArrowLeft') pmLbSlide(-1);
+        if (e.key === 'ArrowRight') pmLbSlide(1);
+      }
     });
 
     document.getElementById('hamburger').addEventListener('click', () => {
@@ -701,16 +738,41 @@
       document.getElementById('mobileMenu').classList.remove('flex');
     }));
 
-    // ══════════════════════════════════
-    // PROJECTS — loaded from projects.json
-    // To add/edit/remove a project, edit projects.json only.
-    // ══════════════════════════════════
+    // ── LIGHTBOX STATE ──
+    let _lbImgs = [];
+    let _lbIdx = 0;
+
+    function pmOpenFull(idx) {
+      _lbIdx = idx !== undefined ? idx : _lbIdx;
+      const lb = document.getElementById('pm-lightbox');
+      const img = document.getElementById('pm-lb-img');
+      const cap = document.getElementById('pm-lb-caption');
+      img.src = _lbImgs[_lbIdx];
+      cap.textContent = `Image ${_lbIdx + 1} of ${_lbImgs.length}`;
+      // Show/hide nav arrows based on count
+      document.getElementById('pm-lb-prev').style.display = _lbImgs.length > 1 ? 'flex' : 'none';
+      document.getElementById('pm-lb-next').style.display = _lbImgs.length > 1 ? 'flex' : 'none';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function pmLbSlide(dir) {
+      _lbIdx = (_lbIdx + dir + _lbImgs.length) % _lbImgs.length;
+      pmOpenFull(_lbIdx);
+    }
+
+    function pmCloseFull() {
+      document.getElementById('pm-lightbox').classList.remove('open');
+      // project modal is still open, keep body overflow hidden
+    }
+
+    // ── PROJECTS ──
     let projects = [];
 
     async function loadProjects() {
       try {
         const res = await fetch('projects.json');
-        if (!res.ok) throw new Error('Failed to load projects.json — status ' + res.status);
+        if (!res.ok) throw new Error('status ' + res.status);
         const data = await res.json();
         projects = data.projects;
         renderPortfolio('all');
@@ -721,20 +783,73 @@
       }
     }
 
+    // ── PROJECT MODAL WITH IMAGE SLIDER + FULL-VIEW ──
     function openProjectModal(idx) {
       const p = projects[idx];
-      const statusColor = p.status === 'Shipped' ? 'bg-green-100 text-green-700' : p.status === 'In Production' ? 'bg-blue-100 text-blue-700' : p.status === 'Delivered' ? 'bg-purple-100 text-purple-700' : p.status === 'In Development' ? 'bg-orange-100 text-orange-700' : 'bg-yellow-100 text-yellow-700';
-      const linkTarget = p.link === '#' ? '' : 'target="_blank" rel="noopener"';
+      const statusColor = p.status === 'Shipped' ? 'bg-green-100 text-green-700'
+        : p.status === 'In Production' ? 'bg-blue-100 text-blue-700'
+        : p.status === 'Delivered' ? 'bg-purple-100 text-purple-700'
+        : p.status === 'In Development' ? 'bg-orange-100 text-orange-700'
+        : 'bg-yellow-100 text-yellow-700';
+      // Support imgs array (2 images) or fall back to single img duplicated
+      const imgs = (p.imgs && p.imgs.length >= 1) ? p.imgs : [p.img, p.img];
+      const imgCount = imgs.length;
+
+      // Store imgs in lightbox state
+      _lbImgs = imgs;
+      _lbIdx = 0;
+
+      // Build dot indicators
+      const dots = imgs.map((_, i) =>
+        `<span id="pm-dot-${i}" style="width:8px;height:8px;border-radius:50%;background:white;opacity:${i === 0 ? '1' : '0.4'};transition:opacity .2s;display:block;"></span>`
+      ).join('');
+
       document.getElementById('projModal').innerHTML = `
       <div class="bg-white rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden max-h-[92vh] overflow-y-auto">
-        <div class="relative h-52 overflow-hidden">
-          <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+
+        <!-- IMAGE SLIDER -->
+        <div class="relative overflow-hidden" style="height:220px;">
+          <!-- Sliding track -->
+          <div id="pm-slides" style="display:flex;width:${imgCount * 100}%;height:100%;transition:transform .35s cubic-bezier(.4,0,.2,1);">
+            ${imgs.map((src, i) => `<img src="${src}" alt="${p.name} photo ${i+1}" style="width:${100/imgCount}%;height:100%;object-fit:cover;flex-shrink:0;cursor:zoom-in;" onclick="pmOpenFull(${i})" title="Click to view full image" />`).join('')}
+          </div>
+
+          <!-- Gradient overlay (non-interactive) -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+
+          <!-- Prev arrow (only if >1 image) -->
+          ${imgCount > 1 ? `<button onclick="pmSlide(-1)"
+            class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/85 hover:bg-white flex items-center justify-center border-none cursor-pointer text-slate-700 text-xl font-bold shadow-md transition-all hover:scale-105"
+            aria-label="Previous image">&#8249;</button>` : ''}
+
+          <!-- Next arrow (only if >1 image) -->
+          ${imgCount > 1 ? `<button onclick="pmSlide(1)"
+            class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/85 hover:bg-white flex items-center justify-center border-none cursor-pointer text-slate-700 text-xl font-bold shadow-md transition-all hover:scale-105"
+            aria-label="Next image">&#8250;</button>` : ''}
+
+          <!-- Dot indicators -->
+          ${imgCount > 1 ? `<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-2 pointer-events-none">${dots}</div>` : ''}
+
+          <!-- Image counter badge -->
+          ${imgCount > 1 ? `<div id="pm-counter" class="absolute bottom-12 right-4 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full pointer-events-none">1 / ${imgCount}</div>` : ''}
+
+          <!-- View Full Image button — bottom centre -->
+          <button onclick="pmOpenFull(pmCurrentSlide)"
+            class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/55 hover:bg-black/80 text-white text-xs font-semibold px-4 py-1.5 rounded-full border-none cursor-pointer transition-all backdrop-blur-sm"
+            style="z-index:10;">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            View Full Image
+          </button>
+
+          <!-- Close button -->
           <button onclick="document.getElementById('modal-project').classList.remove('open');document.body.style.overflow='';"
             class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-slate-600 hover:text-slate-900 border-none cursor-pointer text-xl font-bold shadow">×</button>
-          ${p.link !== '#' ? `<a href="${p.link}" ${linkTarget} class="absolute bottom-4 right-4 bg-white/90 hover:bg-white text-slate-800 text-xs font-semibold px-4 py-2 rounded-full flex items-center gap-1.5 no-underline shadow transition-all hover:-translate-y-0.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Project</a>` : ''}
-          <div class="absolute bottom-4 left-4 w-12 h-12 rounded-xl ${p.bg} flex items-center justify-center text-2xl shadow">${p.emoji}</div>
+
+          <!-- Emoji badge -->
+          <div class="absolute bottom-3 left-4 w-12 h-12 rounded-xl ${p.bg} flex items-center justify-center text-2xl shadow">${p.emoji}</div>
         </div>
+
+        <!-- CONTENT -->
         <div class="p-7">
           <div class="flex items-start justify-between gap-4 mb-1 flex-wrap">
             <div>
@@ -760,15 +875,31 @@
               ${p.highlights.map(h => `<div class="flex items-center gap-2 text-sm text-slate-700"><span class="w-5 h-5 rounded-full bg-brand flex items-center justify-center text-white text-xs flex-shrink-0 font-bold">✓</span>${h}</div>`).join('')}
             </div>
           </div>
-          <div class="flex gap-3">
-            <button onclick="document.getElementById('modal-project').classList.remove('open');document.body.style.overflow='';openContact();"
-              class="flex-1 bg-brand text-white font-semibold py-3.5 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer text-sm">
-              Start a Similar Project →
-            </button>
-            ${p.link !== '#' ? `<a href="${p.link}" ${linkTarget} class="px-5 py-3.5 rounded-full border-2 border-slate-200 text-slate-700 text-sm font-semibold hover:border-brand hover:text-brand transition-colors no-underline flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View</a>` : ''}
-          </div>
+          <button onclick="document.getElementById('modal-project').classList.remove('open');document.body.style.overflow='';openContact();"
+            class="w-full bg-brand text-white font-semibold py-3.5 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer text-sm">
+            Start a Similar Project →
+          </button>
         </div>
       </div>`;
+
+      // Slider state scoped via closure
+      let pmCurrentSlide = 0;
+      window.pmCurrentSlide = 0;
+
+      window.pmSlide = function(dir) {
+        pmCurrentSlide = (pmCurrentSlide + dir + imgCount) % imgCount;
+        window.pmCurrentSlide = pmCurrentSlide;
+        document.getElementById('pm-slides').style.transform = `translateX(-${pmCurrentSlide * (100 / imgCount)}%)`;
+        // Update dots
+        imgs.forEach((_, i) => {
+          const dot = document.getElementById(`pm-dot-${i}`);
+          if (dot) dot.style.opacity = i === pmCurrentSlide ? '1' : '0.4';
+        });
+        const counter = document.getElementById('pm-counter');
+        if (counter) counter.textContent = `${pmCurrentSlide + 1} / ${imgCount}`;
+        _lbIdx = pmCurrentSlide;
+      };
+
       document.getElementById('modal-project').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -780,14 +911,11 @@
     function renderPortfolio(filter, count) {
       currentFilter = filter;
       visibleCount = count || PAGE_SIZE;
-
       const grid = document.getElementById('portfolioGrid');
       const btnWrap = document.getElementById('viewMoreWrap');
       grid.innerHTML = '';
-
       const list = filter === 'all' ? projects : projects.filter(p => p.cat === filter);
       const slice = list.slice(0, visibleCount);
-
       slice.forEach(p => {
         const realIdx = projects.indexOf(p);
         grid.innerHTML += `<div onclick="openProjectModal(${realIdx})" class="bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer group">
@@ -799,22 +927,15 @@
           </div>
         </div>`;
       });
-
-      // Show/hide View More button
       if (list.length > visibleCount) {
         const remaining = list.length - visibleCount;
-        btnWrap.innerHTML = `<button onclick="loadMore()" class="border-2 border-brand text-brand font-semibold px-8 py-3 rounded-full hover:bg-brand hover:text-white transition-all cursor-pointer bg-white text-sm">
-          View More (${remaining} remaining) →
-        </button>`;
+        btnWrap.innerHTML = `<button onclick="loadMore()" class="border-2 border-brand text-brand font-semibold px-8 py-3 rounded-full hover:bg-brand hover:text-white transition-all cursor-pointer bg-white text-sm">View More (${remaining} remaining) →</button>`;
       } else {
         btnWrap.innerHTML = '';
       }
     }
 
-    function loadMore() {
-      visibleCount += PAGE_SIZE;
-      renderPortfolio(currentFilter, visibleCount);
-    }
+    function loadMore() { visibleCount += PAGE_SIZE; renderPortfolio(currentFilter, visibleCount); }
 
     function filterPortfolio(filter) {
       document.querySelectorAll('.filter-btn').forEach(b => {
