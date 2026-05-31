@@ -23,21 +23,32 @@
     }
   </script>
   <style>
-    * { font-family: 'Inter', sans-serif; }
-    html { scroll-behavior: smooth; }
-    .hero-section { background-color: #cfe2f3; }
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .hero-section {
+      background-color: #cfe2f3;
+    }
 
     .modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.55);
+      background: rgba(0, 0, 0, 0.55);
       z-index: 999;
       align-items: center;
       justify-content: center;
       padding: 16px;
     }
-    .modal-overlay.open { display: flex; }
+
+    .modal-overlay.open {
+      display: flex;
+    }
 
     .contact-left {
       background: linear-gradient(160deg, #1e3a8a 0%, #1e40af 100%);
@@ -54,7 +65,10 @@
       transition: border-color .2s;
       color: #0f172a;
     }
-    .cf-input:focus { border-color: #2563EB; }
+
+    .cf-input:focus {
+      border-color: #2563EB;
+    }
 
     .cf-select {
       width: 100%;
@@ -72,7 +86,10 @@
       background-position: right 14px center;
       padding-right: 36px;
     }
-    .cf-select:focus { border-color: #2563EB; }
+
+    .cf-select:focus {
+      border-color: #2563EB;
+    }
 
     .cf-textarea {
       width: 100%;
@@ -87,7 +104,10 @@
       min-height: 110px;
       color: #0f172a;
     }
-    .cf-textarea:focus { border-color: #2563EB; }
+
+    .cf-textarea:focus {
+      border-color: #2563EB;
+    }
 
     .check-pill {
       border: 1.5px solid #e2e8f0;
@@ -104,26 +124,31 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.95);
+      background: rgba(0, 0, 0, 0.95);
       z-index: 10000;
       align-items: center;
       justify-content: center;
     }
-    #pm-lightbox.open { display: flex; }
+
+    #pm-lightbox.open {
+      display: flex;
+    }
+
     #pm-lb-img {
       max-width: 94vw;
       max-height: 90vh;
       object-fit: contain;
       border-radius: 8px;
-      box-shadow: 0 8px 60px rgba(0,0,0,0.7);
+      box-shadow: 0 8px 60px rgba(0, 0, 0, 0.7);
       cursor: default;
       user-select: none;
     }
+
     #pm-lb-close {
       position: absolute;
       top: 20px;
       right: 24px;
-      background: rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.12);
       border: none;
       color: white;
       font-size: 28px;
@@ -138,13 +163,17 @@
       backdrop-filter: blur(6px);
       transition: background .2s;
     }
-    #pm-lb-close:hover { background: rgba(255,255,255,0.25); }
+
+    #pm-lb-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
     #pm-lb-caption {
       position: absolute;
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      color: rgba(255,255,255,0.45);
+      color: rgba(255, 255, 255, 0.45);
       font-size: 12px;
       pointer-events: none;
       white-space: nowrap;
@@ -157,21 +186,28 @@
   <!-- NAV -->
   <nav class="sticky top-0 z-50 bg-white border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#home" class="flex items-center gap-2 no-underline">
-        <svg class="w-6 h-6 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="2" y="2" width="20" height="20" rx="3" />
-          <path d="M8 12h8M12 8v8" stroke-linecap="round" />
-        </svg>
-        <span class="font-bold text-lg text-slate-900 tracking-tight">CircuitForge</span>
+      <a href="#home" class="flex items-center gap-3 no-underline">
+        <img src="./Logo3.png" alt="CircuitForge Logo" class="h-16 w-auto object-contain" />
       </a>
       <ul class="hidden md:flex items-center gap-8 list-none m-0 p-0">
-        <li><a href="#home" class="text-slate-700 text-sm font-medium hover:text-brand transition-colors no-underline tracking-wide">HOME</a></li>
-        <li><a href="#services" class="text-slate-700 text-sm font-medium hover:text-brand transition-colors no-underline tracking-wide">SERVICES</a></li>
-        <li><a href="#portfolio" class="text-slate-700 text-sm font-medium hover:text-brand transition-colors no-underline tracking-wide">PORTFOLIO</a></li>
-        <li><a href="#about" class="text-slate-700 text-sm font-medium hover:text-brand transition-colors no-underline tracking-wide">ABOUT</a></li>
-        <li><a href="#contact" class="text-slate-700 text-sm font-medium hover:text-brand transition-colors no-underline tracking-wide">CONTACT</a></li>
+        <li><a href="#home"
+            class="text-slate-700 text-sm font-medium hover:text-brand transition-colors no-underline tracking-wide">HOME</a>
+        </li>
+        <li><a href="#services"
+            class="text-slate-700 text-sm font-medium hover:text-brand transition-colors no-underline tracking-wide">SERVICES</a>
+        </li>
+        <li><a href="#portfolio"
+            class="text-slate-700 text-sm font-medium hover:text-brand transition-colors no-underline tracking-wide">PORTFOLIO</a>
+        </li>
+        <li><a href="#about"
+            class="text-slate-700 text-sm font-medium hover:text-brand transition-colors no-underline tracking-wide">ABOUT</a>
+        </li>
+        <li><a href="#contact"
+            class="text-slate-700 text-sm font-medium hover:text-brand transition-colors no-underline tracking-wide">CONTACT</a>
+        </li>
       </ul>
-      <button onclick="openContact()" class="hidden md:inline-flex items-center gap-2 bg-brand text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">
+      <button onclick="openContact()"
+        class="hidden md:inline-flex items-center gap-2 bg-brand text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">
         Hire Us Today →
       </button>
       <button id="hamburger" class="md:hidden p-1 bg-transparent border-none cursor-pointer flex flex-col gap-1.5">
@@ -181,12 +217,19 @@
       </button>
     </div>
     <div id="mobileMenu" class="hidden border-t border-slate-100 bg-white px-6 py-4 flex-col gap-0">
-      <a href="#home" class="block py-3 text-slate-800 font-medium border-b border-slate-100 no-underline mobile-link">Home</a>
-      <a href="#services" class="block py-3 text-slate-800 font-medium border-b border-slate-100 no-underline mobile-link">Services</a>
-      <a href="#portfolio" class="block py-3 text-slate-800 font-medium border-b border-slate-100 no-underline mobile-link">Portfolio</a>
-      <a href="#about" class="block py-3 text-slate-800 font-medium border-b border-slate-100 no-underline mobile-link">About</a>
-      <a href="#contact" class="block py-3 text-slate-800 font-medium border-b border-slate-100 no-underline mobile-link">Contact</a>
-      <button onclick="openContact()" class="mt-3 bg-brand text-white font-semibold px-5 py-2.5 rounded-full text-sm border-none cursor-pointer w-full">Hire Us Today →</button>
+      <a href="#home"
+        class="block py-3 text-slate-800 font-medium border-b border-slate-100 no-underline mobile-link">Home</a>
+      <a href="#services"
+        class="block py-3 text-slate-800 font-medium border-b border-slate-100 no-underline mobile-link">Services</a>
+      <a href="#portfolio"
+        class="block py-3 text-slate-800 font-medium border-b border-slate-100 no-underline mobile-link">Portfolio</a>
+      <a href="#about"
+        class="block py-3 text-slate-800 font-medium border-b border-slate-100 no-underline mobile-link">About</a>
+      <a href="#contact"
+        class="block py-3 text-slate-800 font-medium border-b border-slate-100 no-underline mobile-link">Contact</a>
+      <button onclick="openContact()"
+        class="mt-3 bg-brand text-white font-semibold px-5 py-2.5 rounded-full text-sm border-none cursor-pointer w-full">Hire
+        Us Today →</button>
     </div>
   </nav>
 
@@ -197,79 +240,169 @@
         <h1 class="font-black leading-tight mb-6" style="font-size:clamp(2.6rem,5vw,4rem);line-height:1.1;">
           <span class="text-brand">CircuitForge</span>
           <span class="text-slate-400 font-light mx-3">—</span><br />
-          <span class="text-slate-900">Where Ideas Become<br />Hardware</span>
+          <span class="text-slate-900"> Forging Vision <br />Into<br /> Reality</span>
         </h1>
         <p class="text-slate-600 text-lg leading-relaxed mb-10 max-w-xl">
-          Your One-Stop Embedded Startup Partner — from IoT solutions and PCB design to full embedded systems, we turn concepts into production-ready hardware.
+          Your One-Stop Embedded Startup Partner — from IoT solutions and PCB design to full embedded systems, we turn
+          concepts into production-ready hardware.
         </p>
         <div class="flex gap-4 flex-wrap items-center">
-          <button onclick="openContact()" class="bg-brand text-white font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2 hover:bg-brand-dark transition-all hover:-translate-y-0.5 border-none cursor-pointer text-base">
+          <button onclick="openContact()"
+            class="bg-brand text-white font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2 hover:bg-brand-dark transition-all hover:-translate-y-0.5 border-none cursor-pointer text-base">
             Hire Us Today →
           </button>
-          <a href="#portfolio" class="border-2 border-slate-300 text-slate-800 font-medium px-7 py-3.5 rounded-full inline-flex items-center hover:border-brand hover:text-brand transition-all no-underline text-base">
+          <a href="#portfolio"
+            class="border-2 border-slate-300 text-slate-800 font-medium px-7 py-3.5 rounded-full inline-flex items-center hover:border-brand hover:text-brand transition-all no-underline text-base">
             View Work
           </a>
         </div>
       </div>
       <div class="hidden lg:flex items-center justify-center">
-        <svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-lg drop-shadow-xl" style="filter:drop-shadow(0 20px 40px rgba(37,99,235,0.15))">
+        <svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-lg drop-shadow-xl"
+          style="filter:drop-shadow(0 20px 40px rgba(37,99,235,0.15))">
           <rect x="30" y="20" width="460" height="380" rx="28" fill="white" opacity="0.7" />
           <rect x="70" y="60" width="380" height="260" rx="12" fill="#1e3a5f" opacity="0.92" />
           <g stroke="#2d5a8f" stroke-width="0.7" opacity="0.5">
-            <line x1="110" y1="60" x2="110" y2="320"/><line x1="150" y1="60" x2="150" y2="320"/><line x1="190" y1="60" x2="190" y2="320"/><line x1="230" y1="60" x2="230" y2="320"/><line x1="270" y1="60" x2="270" y2="320"/><line x1="310" y1="60" x2="310" y2="320"/><line x1="350" y1="60" x2="350" y2="320"/><line x1="390" y1="60" x2="390" y2="320"/><line x1="70" y1="100" x2="450" y2="100"/><line x1="70" y1="140" x2="450" y2="140"/><line x1="70" y1="180" x2="450" y2="180"/><line x1="70" y1="220" x2="450" y2="220"/><line x1="70" y1="260" x2="450" y2="260"/>
+            <line x1="110" y1="60" x2="110" y2="320" />
+            <line x1="150" y1="60" x2="150" y2="320" />
+            <line x1="190" y1="60" x2="190" y2="320" />
+            <line x1="230" y1="60" x2="230" y2="320" />
+            <line x1="270" y1="60" x2="270" y2="320" />
+            <line x1="310" y1="60" x2="310" y2="320" />
+            <line x1="350" y1="60" x2="350" y2="320" />
+            <line x1="390" y1="60" x2="390" y2="320" />
+            <line x1="70" y1="100" x2="450" y2="100" />
+            <line x1="70" y1="140" x2="450" y2="140" />
+            <line x1="70" y1="180" x2="450" y2="180" />
+            <line x1="70" y1="220" x2="450" y2="220" />
+            <line x1="70" y1="260" x2="450" y2="260" />
           </g>
           <g stroke="#f59e0b" stroke-width="2.5" fill="none" opacity="0.9">
-            <path d="M130 190 L130 150 L200 150"/><path d="M200 150 L240 150 L240 110 L320 110"/><path d="M320 110 L360 110 L360 150 L400 150"/><path d="M130 190 L130 230 L180 230 L180 270 L280 270"/><path d="M280 270 L340 270 L340 230 L400 230"/><path d="M400 150 L400 190 L370 190"/><path d="M370 190 L370 230 L400 230"/><path d="M240 190 L240 230"/><path d="M160 110 L160 150 L130 150 L130 190"/>
+            <path d="M130 190 L130 150 L200 150" />
+            <path d="M200 150 L240 150 L240 110 L320 110" />
+            <path d="M320 110 L360 110 L360 150 L400 150" />
+            <path d="M130 190 L130 230 L180 230 L180 270 L280 270" />
+            <path d="M280 270 L340 270 L340 230 L400 230" />
+            <path d="M400 150 L400 190 L370 190" />
+            <path d="M370 190 L370 230 L400 230" />
+            <path d="M240 190 L240 230" />
+            <path d="M160 110 L160 150 L130 150 L130 190" />
           </g>
           <g fill="#f59e0b" opacity="0.9">
-            <circle cx="130" cy="190" r="5"/><circle cx="200" cy="150" r="4"/><circle cx="240" cy="150" r="4"/><circle cx="320" cy="110" r="4"/><circle cx="360" cy="150" r="4"/><circle cx="400" cy="150" r="5"/><circle cx="400" cy="230" r="5"/><circle cx="340" cy="270" r="4"/><circle cx="280" cy="270" r="4"/><circle cx="180" cy="230" r="4"/><circle cx="240" cy="230" r="4"/><circle cx="370" cy="190" r="4"/>
+            <circle cx="130" cy="190" r="5" />
+            <circle cx="200" cy="150" r="4" />
+            <circle cx="240" cy="150" r="4" />
+            <circle cx="320" cy="110" r="4" />
+            <circle cx="360" cy="150" r="4" />
+            <circle cx="400" cy="150" r="5" />
+            <circle cx="400" cy="230" r="5" />
+            <circle cx="340" cy="270" r="4" />
+            <circle cx="280" cy="270" r="4" />
+            <circle cx="180" cy="230" r="4" />
+            <circle cx="240" cy="230" r="4" />
+            <circle cx="370" cy="190" r="4" />
           </g>
-          <rect x="195" y="155" width="90" height="90" rx="6" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
-          <rect x="205" y="165" width="70" height="70" rx="4" fill="#1e293b"/>
-          <text x="240" y="196" text-anchor="middle" fill="#60a5fa" font-size="8" font-family="monospace" font-weight="bold">STM32</text>
+          <rect x="195" y="155" width="90" height="90" rx="6" fill="#0f172a" stroke="#3b82f6" stroke-width="2" />
+          <rect x="205" y="165" width="70" height="70" rx="4" fill="#1e293b" />
+          <text x="240" y="196" text-anchor="middle" fill="#60a5fa" font-size="8" font-family="monospace"
+            font-weight="bold">STM32</text>
           <text x="240" y="209" text-anchor="middle" fill="#94a3b8" font-size="6.5" font-family="monospace">MCU</text>
-          <text x="240" y="222" text-anchor="middle" fill="#475569" font-size="5.5" font-family="monospace">ARM Cortex-M4</text>
+          <text x="240" y="222" text-anchor="middle" fill="#475569" font-size="5.5" font-family="monospace">ARM
+            Cortex-M4</text>
           <g fill="#f59e0b">
-            <rect x="190" y="163" width="5" height="3" rx="1"/><rect x="190" y="172" width="5" height="3" rx="1"/><rect x="190" y="181" width="5" height="3" rx="1"/><rect x="190" y="190" width="5" height="3" rx="1"/><rect x="190" y="199" width="5" height="3" rx="1"/><rect x="190" y="208" width="5" height="3" rx="1"/><rect x="190" y="217" width="5" height="3" rx="1"/><rect x="285" y="163" width="5" height="3" rx="1"/><rect x="285" y="172" width="5" height="3" rx="1"/><rect x="285" y="181" width="5" height="3" rx="1"/><rect x="285" y="190" width="5" height="3" rx="1"/><rect x="285" y="199" width="5" height="3" rx="1"/><rect x="285" y="208" width="5" height="3" rx="1"/><rect x="285" y="217" width="5" height="3" rx="1"/><rect x="203" y="150" width="3" height="5" rx="1"/><rect x="212" y="150" width="3" height="5" rx="1"/><rect x="221" y="150" width="3" height="5" rx="1"/><rect x="230" y="150" width="3" height="5" rx="1"/><rect x="239" y="150" width="3" height="5" rx="1"/><rect x="248" y="150" width="3" height="5" rx="1"/><rect x="257" y="150" width="3" height="5" rx="1"/><rect x="266" y="150" width="3" height="5" rx="1"/><rect x="203" y="245" width="3" height="5" rx="1"/><rect x="212" y="245" width="3" height="5" rx="1"/><rect x="221" y="245" width="3" height="5" rx="1"/><rect x="230" y="245" width="3" height="5" rx="1"/><rect x="239" y="245" width="3" height="5" rx="1"/><rect x="248" y="245" width="3" height="5" rx="1"/><rect x="257" y="245" width="3" height="5" rx="1"/><rect x="266" y="245" width="3" height="5" rx="1"/>
+            <rect x="190" y="163" width="5" height="3" rx="1" />
+            <rect x="190" y="172" width="5" height="3" rx="1" />
+            <rect x="190" y="181" width="5" height="3" rx="1" />
+            <rect x="190" y="190" width="5" height="3" rx="1" />
+            <rect x="190" y="199" width="5" height="3" rx="1" />
+            <rect x="190" y="208" width="5" height="3" rx="1" />
+            <rect x="190" y="217" width="5" height="3" rx="1" />
+            <rect x="285" y="163" width="5" height="3" rx="1" />
+            <rect x="285" y="172" width="5" height="3" rx="1" />
+            <rect x="285" y="181" width="5" height="3" rx="1" />
+            <rect x="285" y="190" width="5" height="3" rx="1" />
+            <rect x="285" y="199" width="5" height="3" rx="1" />
+            <rect x="285" y="208" width="5" height="3" rx="1" />
+            <rect x="285" y="217" width="5" height="3" rx="1" />
+            <rect x="203" y="150" width="3" height="5" rx="1" />
+            <rect x="212" y="150" width="3" height="5" rx="1" />
+            <rect x="221" y="150" width="3" height="5" rx="1" />
+            <rect x="230" y="150" width="3" height="5" rx="1" />
+            <rect x="239" y="150" width="3" height="5" rx="1" />
+            <rect x="248" y="150" width="3" height="5" rx="1" />
+            <rect x="257" y="150" width="3" height="5" rx="1" />
+            <rect x="266" y="150" width="3" height="5" rx="1" />
+            <rect x="203" y="245" width="3" height="5" rx="1" />
+            <rect x="212" y="245" width="3" height="5" rx="1" />
+            <rect x="221" y="245" width="3" height="5" rx="1" />
+            <rect x="230" y="245" width="3" height="5" rx="1" />
+            <rect x="239" y="245" width="3" height="5" rx="1" />
+            <rect x="248" y="245" width="3" height="5" rx="1" />
+            <rect x="257" y="245" width="3" height="5" rx="1" />
+            <rect x="266" y="245" width="3" height="5" rx="1" />
           </g>
-          <rect x="330" y="85" width="55" height="45" rx="5" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
-          <text x="357" y="104" text-anchor="middle" fill="#34d399" font-size="7" font-family="monospace" font-weight="bold">ESP32</text>
-          <text x="357" y="118" text-anchor="middle" fill="#6ee7b7" font-size="5.5" font-family="monospace">Wi-Fi/BLE</text>
+          <rect x="330" y="85" width="55" height="45" rx="5" fill="#0f172a" stroke="#10b981" stroke-width="1.5" />
+          <text x="357" y="104" text-anchor="middle" fill="#34d399" font-size="7" font-family="monospace"
+            font-weight="bold">ESP32</text>
+          <text x="357" y="118" text-anchor="middle" fill="#6ee7b7" font-size="5.5"
+            font-family="monospace">Wi-Fi/BLE</text>
           <g stroke="#10b981" stroke-width="1.8" fill="none" opacity="0.8">
-            <path d="M357 75 Q357 68 350 63"/><path d="M357 75 Q364 68 364 61"/><path d="M357 75 Q357 62 344 56"/><path d="M357 75 Q357 62 370 56"/>
+            <path d="M357 75 Q357 68 350 63" />
+            <path d="M357 75 Q364 68 364 61" />
+            <path d="M357 75 Q357 62 344 56" />
+            <path d="M357 75 Q357 62 370 56" />
           </g>
-          <circle cx="357" cy="75" r="2.5" fill="#10b981"/>
+          <circle cx="357" cy="75" r="2.5" fill="#10b981" />
           <g fill="#475569" stroke="#64748b" stroke-width="1">
-            <rect x="105" y="100" width="14" height="22" rx="3"/><rect x="125" y="100" width="14" height="22" rx="3"/><rect x="105" y="270" width="14" height="22" rx="3"/><rect x="125" y="270" width="14" height="22" rx="3"/>
+            <rect x="105" y="100" width="14" height="22" rx="3" />
+            <rect x="125" y="100" width="14" height="22" rx="3" />
+            <rect x="105" y="270" width="14" height="22" rx="3" />
+            <rect x="125" y="270" width="14" height="22" rx="3" />
           </g>
           <g fill="#94a3b8">
-            <rect x="108" y="95" width="8" height="5" rx="1"/><rect x="128" y="95" width="8" height="5" rx="1"/><rect x="108" y="292" width="8" height="5" rx="1"/><rect x="128" y="292" width="8" height="5" rx="1"/>
+            <rect x="108" y="95" width="8" height="5" rx="1" />
+            <rect x="128" y="95" width="8" height="5" rx="1" />
+            <rect x="108" y="292" width="8" height="5" rx="1" />
+            <rect x="128" y="292" width="8" height="5" rx="1" />
           </g>
-          <rect x="370" y="245" width="52" height="32" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
-          <text x="396" y="263" text-anchor="middle" fill="#fbbf24" font-size="6.5" font-family="monospace">3.3V LDO</text>
+          <rect x="370" y="245" width="52" height="32" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" />
+          <text x="396" y="263" text-anchor="middle" fill="#fbbf24" font-size="6.5" font-family="monospace">3.3V
+            LDO</text>
           <g fill="#f59e0b">
-            <rect x="375" y="277" width="5" height="8" rx="1"/><rect x="385" y="277" width="5" height="8" rx="1"/><rect x="395" y="277" width="5" height="8" rx="1"/><rect x="405" y="277" width="5" height="8" rx="1"/>
+            <rect x="375" y="277" width="5" height="8" rx="1" />
+            <rect x="385" y="277" width="5" height="8" rx="1" />
+            <rect x="395" y="277" width="5" height="8" rx="1" />
+            <rect x="405" y="277" width="5" height="8" rx="1" />
           </g>
-          <rect x="58" y="168" width="18" height="28" rx="9" fill="#334155" stroke="#64748b" stroke-width="1.5"/>
-          <rect x="63" y="173" width="8" height="18" rx="4" fill="#1e293b"/>
+          <rect x="58" y="168" width="18" height="28" rx="9" fill="#334155" stroke="#64748b" stroke-width="1.5" />
+          <rect x="63" y="173" width="8" height="18" rx="4" fill="#1e293b" />
           <text x="67" y="209" text-anchor="middle" fill="#94a3b8" font-size="5" font-family="monospace">USB-C</text>
-          <circle cx="420" cy="90" r="6" fill="#ef4444" opacity="0.9"/>
-          <circle cx="436" cy="90" r="6" fill="#22c55e" opacity="0.9"/>
-          <circle cx="420" cy="90" r="3" fill="#fca5a5" opacity="0.6"/>
-          <circle cx="436" cy="90" r="3" fill="#86efac" opacity="0.6"/>
-          <rect x="310" y="290" width="90" height="26" rx="13" fill="#2563eb"/>
-          <text x="355" y="307" text-anchor="middle" fill="white" font-size="9" font-family="Inter, sans-serif" font-weight="600">IoT Ready ✓</text>
-          <rect x="90" y="330" width="60" height="24" rx="12" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5"/>
-          <text x="120" y="346" text-anchor="middle" fill="#60a5fa" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">FreeRTOS</text>
-          <rect x="200" y="330" width="70" height="24" rx="12" fill="#f59e0b"/>
-          <text x="235" y="346" text-anchor="middle" fill="#1e293b" font-size="8.5" font-family="Inter, sans-serif" font-weight="700">8-Layer PCB</text>
-          <rect x="32" y="345" width="140" height="44" rx="12" fill="white" opacity="0.95" style="filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1))"/>
-          <text x="48" y="365" fill="#2563eb" font-size="16" font-family="Inter, sans-serif" font-weight="800">50+</text>
-          <text x="72" y="365" fill="#0f172a" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">Projects</text>
+          <circle cx="420" cy="90" r="6" fill="#ef4444" opacity="0.9" />
+          <circle cx="436" cy="90" r="6" fill="#22c55e" opacity="0.9" />
+          <circle cx="420" cy="90" r="3" fill="#fca5a5" opacity="0.6" />
+          <circle cx="436" cy="90" r="3" fill="#86efac" opacity="0.6" />
+          <rect x="310" y="290" width="90" height="26" rx="13" fill="#2563eb" />
+          <text x="355" y="307" text-anchor="middle" fill="white" font-size="9" font-family="Inter, sans-serif"
+            font-weight="600">IoT Ready ✓</text>
+          <rect x="90" y="330" width="60" height="24" rx="12" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+          <text x="120" y="346" text-anchor="middle" fill="#60a5fa" font-size="8.5" font-family="Inter, sans-serif"
+            font-weight="600">FreeRTOS</text>
+          <rect x="200" y="330" width="70" height="24" rx="12" fill="#f59e0b" />
+          <text x="235" y="346" text-anchor="middle" fill="#1e293b" font-size="8.5" font-family="Inter, sans-serif"
+            font-weight="700">8-Layer PCB</text>
+          <rect x="32" y="345" width="140" height="44" rx="12" fill="white" opacity="0.95"
+            style="filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1))" />
+          <text x="48" y="365" fill="#2563eb" font-size="16" font-family="Inter, sans-serif"
+            font-weight="800">50+</text>
+          <text x="72" y="365" fill="#0f172a" font-size="8.5" font-family="Inter, sans-serif"
+            font-weight="600">Projects</text>
           <text x="72" y="378" fill="#64748b" font-size="7.5" font-family="Inter, sans-serif">Shipped to market</text>
-          <rect x="348" y="345" width="140" height="44" rx="12" fill="white" opacity="0.95" style="filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1))"/>
-          <text x="364" y="365" fill="#10b981" font-size="16" font-family="Inter, sans-serif" font-weight="800">100%</text>
-          <text x="410" y="365" fill="#0f172a" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">On-time</text>
+          <rect x="348" y="345" width="140" height="44" rx="12" fill="white" opacity="0.95"
+            style="filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1))" />
+          <text x="364" y="365" fill="#10b981" font-size="16" font-family="Inter, sans-serif"
+            font-weight="800">100%</text>
+          <text x="410" y="365" fill="#0f172a" font-size="8.5" font-family="Inter, sans-serif"
+            font-weight="600">On-time</text>
           <text x="410" y="378" fill="#64748b" font-size="7.5" font-family="Inter, sans-serif">Delivery rate</text>
         </svg>
       </div>
@@ -280,46 +413,59 @@
   <section id="services" class="bg-white px-6 py-24">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-14">
-        <span class="bg-yellow-400 text-black text-xs font-bold tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">SERVICES</span>
+        <span
+          class="bg-yellow-400 text-black text-xs font-bold tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">SERVICES</span>
         <h2 class="font-extrabold text-4xl text-slate-900 mb-4">What We Offer</h2>
-        <p class="text-slate-500 max-w-xl mx-auto leading-relaxed">We engineer the full hardware journey — from your first idea to mass production — with embedded expertise that scales with your startup.</p>
+        <p class="text-slate-500 max-w-xl mx-auto leading-relaxed">We engineer the full hardware journey — from your
+          first idea to mass production — with embedded expertise that scales with your startup.</p>
       </div>
-      <div onclick="openModal('idea')" class="bg-amber-50 border border-amber-200 rounded-2xl p-7 flex items-center justify-between gap-4 mb-6 cursor-pointer hover:shadow-md transition-shadow flex-wrap">
+      <div onclick="openModal('idea')"
+        class="bg-amber-50 border border-amber-200 rounded-2xl p-7 flex items-center justify-between gap-4 mb-6 cursor-pointer hover:shadow-md transition-shadow flex-wrap">
         <div class="flex items-center gap-5">
-          <div class="w-14 h-14 rounded-full bg-yellow-400 flex items-center justify-center flex-shrink-0 text-2xl">💡</div>
+          <div class="w-14 h-14 rounded-full bg-yellow-400 flex items-center justify-center flex-shrink-0 text-2xl">💡
+          </div>
           <div>
             <p class="text-xs text-slate-400 font-semibold tracking-widest mb-0.5">01 · FEATURED</p>
             <h3 class="font-bold text-xl text-slate-900">Idea into Hardware</h3>
-            <p class="text-slate-500 text-sm">From a napkin sketch to a working device — we take your idea end-to-end.</p>
+            <p class="text-slate-500 text-sm">From a napkin sketch to a working device — we take your idea end-to-end.
+            </p>
           </div>
         </div>
         <span class="text-brand text-sm font-semibold whitespace-nowrap">Read more →</span>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
-        <div onclick="openModal('iot')" class="bg-blue-50 border border-blue-100 rounded-2xl p-7 cursor-pointer hover:shadow-md hover:-translate-y-1 transition-all">
+        <div onclick="openModal('iot')"
+          class="bg-blue-50 border border-blue-100 rounded-2xl p-7 cursor-pointer hover:shadow-md hover:-translate-y-1 transition-all">
           <p class="text-xs text-slate-400 font-semibold tracking-widest mb-4">02</p>
           <div class="text-2xl mb-3">📡</div>
           <h3 class="font-bold text-lg text-slate-900 mb-2">IoT Solutions</h3>
-          <p class="text-slate-500 text-sm mb-4 leading-relaxed">Connected devices with cloud, dashboards, and OTA updates.</p>
+          <p class="text-slate-500 text-sm mb-4 leading-relaxed">Connected devices with cloud, dashboards, and OTA
+            updates.</p>
           <span class="text-brand text-sm font-semibold">Read more →</span>
         </div>
-        <div onclick="openModal('pcb')" class="bg-red-50 border border-red-100 rounded-2xl p-7 cursor-pointer hover:shadow-md hover:-translate-y-1 transition-all">
+        <div onclick="openModal('pcb')"
+          class="bg-red-50 border border-red-100 rounded-2xl p-7 cursor-pointer hover:shadow-md hover:-translate-y-1 transition-all">
           <p class="text-xs text-slate-400 font-semibold tracking-widest mb-4">03</p>
           <div class="text-2xl mb-3">🖥️</div>
           <h3 class="font-bold text-lg text-slate-900 mb-2">PCB Design Service</h3>
-          <p class="text-slate-500 text-sm mb-4 leading-relaxed">High-quality multilayer PCB design optimized for manufacturing.</p>
+          <p class="text-slate-500 text-sm mb-4 leading-relaxed">High-quality multilayer PCB design optimized for
+            manufacturing.</p>
           <span class="text-brand text-sm font-semibold">Read more →</span>
         </div>
-        <div onclick="openModal('embedded')" class="bg-green-50 border border-green-100 rounded-2xl p-7 cursor-pointer hover:shadow-md hover:-translate-y-1 transition-all">
+        <div onclick="openModal('embedded')"
+          class="bg-green-50 border border-green-100 rounded-2xl p-7 cursor-pointer hover:shadow-md hover:-translate-y-1 transition-all">
           <p class="text-xs text-slate-400 font-semibold tracking-widest mb-4">04</p>
           <div class="text-2xl mb-3">⚙️</div>
           <h3 class="font-bold text-lg text-slate-900 mb-2">Embedded Solution</h3>
-          <p class="text-slate-500 text-sm mb-4 leading-relaxed">Custom firmware and embedded systems for any microcontroller.</p>
+          <p class="text-slate-500 text-sm mb-4 leading-relaxed">Custom firmware and embedded systems for any
+            microcontroller.</p>
           <span class="text-brand text-sm font-semibold">Read more →</span>
         </div>
       </div>
       <div class="text-center">
-        <button onclick="openContact()" class="bg-brand text-white font-semibold px-8 py-3.5 rounded-full inline-flex items-center gap-2 hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire Us Today →</button>
+        <button onclick="openContact()"
+          class="bg-brand text-white font-semibold px-8 py-3.5 rounded-full inline-flex items-center gap-2 hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire
+          Us Today →</button>
       </div>
     </div>
   </section>
@@ -328,16 +474,25 @@
   <section id="portfolio" class="bg-slate-50 px-6 py-24">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
-        <span class="bg-yellow-400 text-black text-xs font-bold tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">PORTFOLIO</span>
+        <span
+          class="bg-yellow-400 text-black text-xs font-bold tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">PORTFOLIO</span>
         <h2 class="font-extrabold text-4xl text-slate-900 mb-3">Featured Work</h2>
-        <p class="text-slate-500">Hardware we've designed, firmware we've shipped, and products we've helped bring to market.</p>
+        <p class="text-slate-500">Hardware we've designed, firmware we've shipped, and products we've helped bring to
+          market.</p>
       </div>
       <div class="flex gap-3 flex-wrap justify-center mb-10">
-        <button onclick="filterPortfolio('all')" data-filter="all" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold border-2 border-brand bg-brand text-white transition-all cursor-pointer">All</button>
-        <button onclick="filterPortfolio('iot')" data-filter="iot" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold border-2 border-slate-200 bg-white text-slate-700 hover:border-brand hover:text-brand transition-all cursor-pointer">IoT</button>
-        <button onclick="filterPortfolio('pcb')" data-filter="pcb" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold border-2 border-slate-200 bg-white text-slate-700 hover:border-brand hover:text-brand transition-all cursor-pointer">PCB Design</button>
-        <button onclick="filterPortfolio('embedded')" data-filter="embedded" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold border-2 border-slate-200 bg-white text-slate-700 hover:border-brand hover:text-brand transition-all cursor-pointer">Embedded</button>
-        <button onclick="filterPortfolio('idea')" data-filter="idea" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold border-2 border-slate-200 bg-white text-slate-700 hover:border-brand hover:text-brand transition-all cursor-pointer">Idea → HW</button>
+        <button onclick="filterPortfolio('all')" data-filter="all"
+          class="filter-btn px-5 py-2 rounded-full text-sm font-semibold border-2 border-brand bg-brand text-white transition-all cursor-pointer">All</button>
+        <button onclick="filterPortfolio('iot')" data-filter="iot"
+          class="filter-btn px-5 py-2 rounded-full text-sm font-semibold border-2 border-slate-200 bg-white text-slate-700 hover:border-brand hover:text-brand transition-all cursor-pointer">IoT</button>
+        <button onclick="filterPortfolio('pcb')" data-filter="pcb"
+          class="filter-btn px-5 py-2 rounded-full text-sm font-semibold border-2 border-slate-200 bg-white text-slate-700 hover:border-brand hover:text-brand transition-all cursor-pointer">PCB
+          Design</button>
+        <button onclick="filterPortfolio('embedded')" data-filter="embedded"
+          class="filter-btn px-5 py-2 rounded-full text-sm font-semibold border-2 border-slate-200 bg-white text-slate-700 hover:border-brand hover:text-brand transition-all cursor-pointer">Embedded</button>
+        <button onclick="filterPortfolio('idea')" data-filter="idea"
+          class="filter-btn px-5 py-2 rounded-full text-sm font-semibold border-2 border-slate-200 bg-white text-slate-700 hover:border-brand hover:text-brand transition-all cursor-pointer">Idea
+          → HW</button>
       </div>
       <div id="portfolioGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
       <div id="viewMoreWrap" class="flex justify-center mt-10"></div>
@@ -352,27 +507,36 @@
         <span class="text-7xl">📶</span><span class="text-7xl">💡</span>
       </div>
       <div>
-        <span class="bg-yellow-400 text-black text-xs font-bold tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">ABOUT US</span>
+        <span
+          class="bg-yellow-400 text-black text-xs font-bold tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">ABOUT
+          US</span>
         <h2 class="font-extrabold leading-tight mb-5 text-slate-900" style="font-size:clamp(1.75rem,3vw,2.5rem)">
           More Than Just Services —<br /><span class="text-brand">We Engineer Products.</span>
         </h2>
-        <p class="text-slate-500 text-sm leading-relaxed mb-8">CircuitForge is an embedded systems startup helping innovators turn ideas into real, manufacturable hardware. From schematic to shipment, we bring deep expertise across embedded firmware, PCB design, and IoT.</p>
+        <p class="text-slate-500 text-sm leading-relaxed mb-8">CircuitForge is an embedded systems startup helping
+          innovators turn ideas into real, manufacturable hardware. From schematic to shipment, we bring deep expertise
+          across embedded firmware, PCB design, and IoT.</p>
         <p class="font-bold text-base mb-5">Our Mission &amp; Values</p>
         <div class="flex flex-col gap-4 mb-8">
           <div class="flex gap-3 items-start">
             <div class="w-3 h-3 rounded-full bg-brand flex-shrink-0 mt-1"></div>
-            <div><strong class="block font-semibold text-sm">Innovation</strong><span class="text-slate-500 text-sm">Turning bold ideas into working hardware.</span></div>
+            <div><strong class="block font-semibold text-sm">Innovation</strong><span
+                class="text-slate-500 text-sm">Turning bold ideas into working hardware.</span></div>
           </div>
           <div class="flex gap-3 items-start">
             <div class="w-3 h-3 rounded-full bg-brand flex-shrink-0 mt-1"></div>
-            <div><strong class="block font-semibold text-sm">Quality</strong><span class="text-slate-500 text-sm">Production-grade engineering, every revision.</span></div>
+            <div><strong class="block font-semibold text-sm">Quality</strong><span
+                class="text-slate-500 text-sm">Production-grade engineering, every revision.</span></div>
           </div>
           <div class="flex gap-3 items-start">
             <div class="w-3 h-3 rounded-full bg-brand flex-shrink-0 mt-1"></div>
-            <div><strong class="block font-semibold text-sm">Partnership</strong><span class="text-slate-500 text-sm">We grow with your startup, from MVP to scale.</span></div>
+            <div><strong class="block font-semibold text-sm">Partnership</strong><span class="text-slate-500 text-sm">We
+                grow with your startup, from MVP to scale.</span></div>
           </div>
         </div>
-        <button onclick="openContact()" class="bg-brand text-white font-semibold px-7 py-3 rounded-full inline-flex items-center gap-2 hover:bg-brand-dark transition-colors border-none cursor-pointer">Work With Us →</button>
+        <button onclick="openContact()"
+          class="bg-brand text-white font-semibold px-7 py-3 rounded-full inline-flex items-center gap-2 hover:bg-brand-dark transition-colors border-none cursor-pointer">Work
+          With Us →</button>
       </div>
     </div>
   </section>
@@ -381,70 +545,120 @@
   <section id="contact" class="bg-slate-50 px-6 py-24">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
-        <span class="bg-yellow-400 text-black text-xs font-bold tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">CONTACT</span>
+        <span
+          class="bg-yellow-400 text-black text-xs font-bold tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">CONTACT</span>
         <h2 class="font-extrabold text-4xl text-slate-900 mb-4">Get In Touch</h2>
-        <p class="text-slate-500 max-w-lg mx-auto">Ready to start your next project? Contact us directly through the form below or reach out via your preferred method.</p>
+        <p class="text-slate-500 max-w-lg mx-auto">Ready to start your next project? Contact us directly through the
+          form below or reach out via your preferred method.</p>
       </div>
-      <div class="max-w-5xl mx-auto bg-white rounded-2xl overflow-hidden shadow-lg grid grid-cols-1 md:grid-cols-[1fr_1.4fr]">
+      <div
+        class="max-w-5xl mx-auto bg-white rounded-2xl overflow-hidden shadow-lg grid grid-cols-1 md:grid-cols-[1fr_1.4fr]">
         <div class="contact-left text-white p-8 flex flex-col gap-6">
           <div>
             <h3 class="font-bold text-xl text-yellow-400 mb-2">Contact Information</h3>
-            <p class="text-sm text-slate-300 leading-relaxed">Tell us about your hardware idea — we'll get back to you within 24 hours.</p>
+            <p class="text-sm text-slate-300 leading-relaxed">Tell us about your hardware idea — we'll get back to you
+              within 24 hours.</p>
           </div>
           <div class="flex flex-col gap-4 text-sm">
             <div class="flex items-center gap-3 text-slate-200">
-              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
               <span>+91 9266863816 / +91 8368274628</span>
             </div>
             <div class="flex items-center gap-3 text-slate-200">
-              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              <span>hello@circuitforge.dev</span>
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span>forge.circuit@outlook.com</span>
             </div>
             <div class="flex items-center gap-3 text-slate-200">
-              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
               <span>New Delhi, India</span>
             </div>
           </div>
           <div class="flex gap-4 mt-2">
             <a href="#" class="text-slate-300 hover:text-white no-underline">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
             </a>
             <a href="#" class="text-slate-300 hover:text-white no-underline">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path fill="white" d="M12 7a5 5 0 100 10A5 5 0 0012 7zm0 8a3 3 0 110-6 3 3 0 010 6zm4.5-8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path fill="white"
+                  d="M12 7a5 5 0 100 10A5 5 0 0012 7zm0 8a3 3 0 110-6 3 3 0 010 6zm4.5-8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" />
+              </svg>
             </a>
             <a href="#" class="text-slate-300 hover:text-white no-underline">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg>
             </a>
           </div>
         </div>
         <div class="p-6 sm:p-8 bg-white">
-          <div id="secSuccess" class="hidden mb-4 bg-green-50 border border-green-200 text-green-700 rounded-xl p-3 text-sm font-medium">✅ Message sent! We'll get back to you within 24 hours.</div>
-          <div id="secError" class="hidden mb-4 bg-red-50 border border-red-200 text-red-700 rounded-xl p-3 text-sm font-medium">❌ Something went wrong. Please try again.</div>
+          <div id="secSuccess"
+            class="hidden mb-4 bg-green-50 border border-green-200 text-green-700 rounded-xl p-3 text-sm font-medium">✅
+            Message sent! We'll get back to you within 24 hours.</div>
+          <div id="secError"
+            class="hidden mb-4 bg-red-50 border border-red-200 text-red-700 rounded-xl p-3 text-sm font-medium">❌
+            Something went wrong. Please try again.</div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Your Name</label><input id="sec_name" type="text" placeholder="Full name" class="cf-input"/></div>
-            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Email</label><input id="sec_email" type="email" placeholder="Email address" class="cf-input"/></div>
+            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Your Name</label><input id="sec_name"
+                type="text" placeholder="Full name" class="cf-input" /></div>
+            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Email</label><input id="sec_email"
+                type="email" placeholder="Email address" class="cf-input" /></div>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Phone</label><input id="sec_phone" type="tel" placeholder="Optional" class="cf-input"/></div>
+            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Phone</label><input id="sec_phone"
+                type="tel" placeholder="Optional" class="cf-input" /></div>
             <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Preferred Contact</label>
-              <select id="sec_contact" class="cf-select"><option value="">Select</option><option>Email</option><option>Phone</option><option>WhatsApp</option></select>
+              <select id="sec_contact" class="cf-select">
+                <option value="">Select</option>
+                <option>Email</option>
+                <option>Phone</option>
+                <option>WhatsApp</option>
+              </select>
             </div>
           </div>
           <div class="mb-3">
             <label class="block text-xs font-semibold text-slate-700 mb-1.5">Project Type</label>
-            <select id="sec_project" class="cf-select"><option value="">-- Select Service --</option><option>Idea into Hardware</option><option>IoT Solutions</option><option>PCB Design Service</option><option>Embedded Solution</option><option>Other</option></select>
+            <select id="sec_project" class="cf-select">
+              <option value="">-- Select Service --</option>
+              <option>Idea into Hardware</option>
+              <option>IoT Solutions</option>
+              <option>PCB Design Service</option>
+              <option>Embedded Solution</option>
+              <option>Other</option>
+            </select>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
             <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Budget</label>
-              <select id="sec_budget" class="cf-select"><option value="">-- Select Budget --</option><option>Under ₹50K</option><option>₹50K – ₹2L</option><option>₹2L – ₹5L</option><option>₹5L+</option></select>
+              <select id="sec_budget" class="cf-select">
+                <option value="">-- Select Budget --</option>
+                <option>Under ₹50K</option>
+                <option>₹50K – ₹2L</option>
+                <option>₹2L – ₹5L</option>
+                <option>₹5L+</option>
+              </select>
             </div>
-            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Timeline</label><input id="sec_timeline" type="text" placeholder="e.g. 2 weeks, 1 month" class="cf-input"/></div>
+            <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Timeline</label><input
+                id="sec_timeline" type="text" placeholder="e.g. 2 weeks, 1 month" class="cf-input" /></div>
           </div>
           <div class="mb-5">
             <label class="block text-xs font-semibold text-slate-700 mb-1.5">Project Description</label>
             <textarea id="sec_message" placeholder="Tell us about your project..." class="cf-textarea"></textarea>
           </div>
-          <button onclick="sendSectionEmail()" id="secSubmitBtn" class="w-full bg-brand text-white font-semibold py-3.5 rounded-full text-base hover:bg-brand-dark transition-colors border-none cursor-pointer">Send Message</button>
+          <button onclick="sendSectionEmail()" id="secSubmitBtn"
+            class="w-full bg-brand text-white font-semibold py-3.5 rounded-full text-base hover:bg-brand-dark transition-colors border-none cursor-pointer">Send
+            Message</button>
         </div>
       </div>
     </div>
@@ -455,7 +669,10 @@
     <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-10 mb-10">
       <div>
         <div class="flex items-center gap-2 font-bold text-lg mb-2 text-white">
-          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M8 12h8M12 8v8" stroke-linecap="round"/></svg>
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="3" />
+            <path d="M8 12h8M12 8v8" stroke-linecap="round" />
+          </svg>
           CircuitForge
         </div>
         <p class="text-slate-400 text-sm mb-4">Where Ideas Become Hardware</p>
@@ -478,11 +695,13 @@
       <div>
         <h4 class="font-semibold text-sm mb-4 tracking-wide text-white">Get In Touch</h4>
         <div class="flex flex-col gap-2 text-slate-400 text-sm mb-5">
-          <span>✉️ hello@circuitforge.dev</span>
+          <span>✉️ forge.circuit@outlook.com</span>
           <span>📞 +91 9266863816 / +91 8368274628</span>
           <span>📍 New Delhi, India</span>
         </div>
-        <button onclick="openContact()" class="bg-brand text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Start a Project</button>
+        <button onclick="openContact()"
+          class="bg-brand text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Start
+          a Project</button>
       </div>
     </div>
     <div class="max-w-7xl mx-auto pt-6 border-t border-slate-800 text-center text-slate-500 text-xs">
@@ -492,81 +711,138 @@
 
   <!-- CONTACT MODAL -->
   <div id="modal-contact" class="modal-overlay" onclick="closeOutside(event,'modal-contact')">
-    <div class="bg-white rounded-2xl overflow-hidden w-full max-w-3xl shadow-2xl max-h-[95vh] overflow-y-auto grid grid-cols-1 md:grid-cols-[1fr_1.4fr]">
+    <div
+      class="bg-white rounded-2xl overflow-hidden w-full max-w-3xl shadow-2xl max-h-[95vh] overflow-y-auto grid grid-cols-1 md:grid-cols-[1fr_1.4fr]">
       <div class="contact-left text-white p-8 flex flex-col gap-6">
         <div>
           <h3 class="font-bold text-xl text-yellow-400 mb-2">Contact Information</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">Tell us about your hardware idea — we'll get back to you within 24 hours.</p>
+          <p class="text-sm text-slate-300 leading-relaxed">Tell us about your hardware idea — we'll get back to you
+            within 24 hours.</p>
         </div>
         <div class="flex flex-col gap-4 text-sm">
           <div class="flex items-center gap-3 text-slate-200">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
             <span>+91 9266863816 / +91 8368274628</span>
           </div>
           <div class="flex items-center gap-3 text-slate-200">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            <span>hello@circuitforge.dev</span>
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>forge.circuit@outlook.com</span>
           </div>
           <div class="flex items-center gap-3 text-slate-200">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
             <span>New Delhi, India</span>
           </div>
         </div>
         <div class="flex gap-4 mt-2">
-          <a href="#" class="text-slate-300 hover:text-white transition-colors no-underline"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="#" class="text-slate-300 hover:text-white transition-colors no-underline"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path fill="white" d="M12 7a5 5 0 100 10A5 5 0 0012 7zm0 8a3 3 0 110-6 3 3 0 010 6zm4.5-8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg></a>
-          <a href="#" class="text-slate-300 hover:text-white transition-colors no-underline"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" class="text-slate-300 hover:text-white transition-colors no-underline"><svg class="w-5 h-5"
+              fill="currentColor" viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+              <circle cx="4" cy="4" r="2" />
+            </svg></a>
+          <a href="#" class="text-slate-300 hover:text-white transition-colors no-underline"><svg class="w-5 h-5"
+              fill="currentColor" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path fill="white"
+                d="M12 7a5 5 0 100 10A5 5 0 0012 7zm0 8a3 3 0 110-6 3 3 0 010 6zm4.5-8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" />
+            </svg></a>
+          <a href="#" class="text-slate-300 hover:text-white transition-colors no-underline"><svg class="w-5 h-5"
+              fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+            </svg></a>
         </div>
       </div>
       <div class="p-6 sm:p-8 bg-white">
         <div class="flex items-center justify-between mb-6">
           <h2 class="font-bold text-xl text-slate-900">Get In Touch</h2>
-          <button onclick="closeModal('modal-contact')" class="text-slate-400 hover:text-slate-700 bg-transparent border-none cursor-pointer text-2xl leading-none p-1">×</button>
+          <button onclick="closeModal('modal-contact')"
+            class="text-slate-400 hover:text-slate-700 bg-transparent border-none cursor-pointer text-2xl leading-none p-1">×</button>
         </div>
-        <div id="cfSuccess" class="hidden mb-4 bg-green-50 border border-green-200 text-green-700 rounded-xl p-3 text-sm font-medium">✅ Message sent! We'll get back to you within 24 hours.</div>
-        <div id="cfError" class="hidden mb-4 bg-red-50 border border-red-200 text-red-700 rounded-xl p-3 text-sm font-medium">❌ Something went wrong. Please try again.</div>
+        <div id="cfSuccess"
+          class="hidden mb-4 bg-green-50 border border-green-200 text-green-700 rounded-xl p-3 text-sm font-medium">✅
+          Message sent! We'll get back to you within 24 hours.</div>
+        <div id="cfError"
+          class="hidden mb-4 bg-red-50 border border-red-200 text-red-700 rounded-xl p-3 text-sm font-medium">❌
+          Something went wrong. Please try again.</div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Your Name</label><input id="cf_name" type="text" placeholder="Full name" class="cf-input"/></div>
-          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Email</label><input id="cf_email" type="email" placeholder="Email address" class="cf-input"/></div>
+          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Your Name</label><input id="cf_name"
+              type="text" placeholder="Full name" class="cf-input" /></div>
+          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Email</label><input id="cf_email"
+              type="email" placeholder="Email address" class="cf-input" /></div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Phone</label><input id="cf_phone" type="tel" placeholder="Optional" class="cf-input"/></div>
+          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Phone</label><input id="cf_phone"
+              type="tel" placeholder="Optional" class="cf-input" /></div>
           <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Preferred Contact</label>
-            <select id="cf_contact" class="cf-select"><option value="">Select</option><option>Email</option><option>Phone</option><option>WhatsApp</option></select>
+            <select id="cf_contact" class="cf-select">
+              <option value="">Select</option>
+              <option>Email</option>
+              <option>Phone</option>
+              <option>WhatsApp</option>
+            </select>
           </div>
         </div>
         <div class="mb-3">
           <label class="block text-xs font-semibold text-slate-700 mb-1.5">Project Type</label>
-          <select id="cf_project" class="cf-select"><option value="">-- Select Service --</option><option>Idea into Hardware</option><option>IoT Solutions</option><option>PCB Design Service</option><option>Embedded Solution</option><option>Other</option></select>
+          <select id="cf_project" class="cf-select">
+            <option value="">-- Select Service --</option>
+            <option>Idea into Hardware</option>
+            <option>IoT Solutions</option>
+            <option>PCB Design Service</option>
+            <option>Embedded Solution</option>
+            <option>Other</option>
+          </select>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
           <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Budget</label>
-            <select id="cf_budget" class="cf-select"><option value="">-- Select Budget --</option><option>Under ₹50K</option><option>₹50K – ₹2L</option><option>₹2L – ₹5L</option><option>₹5L+</option></select>
+            <select id="cf_budget" class="cf-select">
+              <option value="">-- Select Budget --</option>
+              <option>Under ₹50K</option>
+              <option>₹50K – ₹2L</option>
+              <option>₹2L – ₹5L</option>
+              <option>₹5L+</option>
+            </select>
           </div>
-          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Timeline</label><input id="cf_timeline" type="text" placeholder="e.g. 2 weeks, 1 month" class="cf-input"/></div>
+          <div><label class="block text-xs font-semibold text-slate-700 mb-1.5">Timeline</label><input id="cf_timeline"
+              type="text" placeholder="e.g. 2 weeks, 1 month" class="cf-input" /></div>
         </div>
         <div class="mb-5">
           <label class="block text-xs font-semibold text-slate-700 mb-1.5">Project Description</label>
           <textarea id="cf_message" placeholder="Tell us about your project..." class="cf-textarea"></textarea>
         </div>
-        <button onclick="sendEmail()" id="submitBtn" class="w-full bg-brand text-white font-semibold py-3.5 rounded-full text-base hover:bg-brand-dark transition-colors border-none cursor-pointer">Send Message</button>
+        <button onclick="sendEmail()" id="submitBtn"
+          class="w-full bg-brand text-white font-semibold py-3.5 rounded-full text-base hover:bg-brand-dark transition-colors border-none cursor-pointer">Send
+          Message</button>
       </div>
     </div>
   </div>
 
   <!-- PROJECT CARD MODAL -->
-  <div id="modal-project" class="modal-overlay" onclick="if(event.target===this){this.classList.remove('open');document.body.style.overflow='';}">
+  <div id="modal-project" class="modal-overlay"
+    onclick="if(event.target===this){this.classList.remove('open');document.body.style.overflow='';}">
     <div id="projModal"></div>
   </div>
 
   <!-- SERVICE MODALS -->
   <div id="modal-idea" class="modal-overlay" onclick="closeOutside(event,'modal-idea')">
     <div class="bg-white rounded-2xl max-w-xl w-full p-10 relative max-h-[90vh] overflow-y-auto shadow-2xl">
-      <button onclick="closeModal('modal-idea')" class="absolute top-5 right-6 text-slate-400 hover:text-slate-700 text-3xl bg-transparent border-none cursor-pointer leading-none">×</button>
+      <button onclick="closeModal('modal-idea')"
+        class="absolute top-5 right-6 text-slate-400 hover:text-slate-700 text-3xl bg-transparent border-none cursor-pointer leading-none">×</button>
       <div class="text-center mb-7">
-        <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">💡</div>
+        <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">💡
+        </div>
         <h3 class="font-extrabold text-2xl mb-3">Idea into Hardware</h3>
-        <p class="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto">Have a product idea but no hardware team? We become your engineering partner — translating your vision into schematics, prototypes, firmware, and production-ready devices.</p>
+        <p class="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto">Have a product idea but no hardware team? We
+          become your engineering partner — translating your vision into schematics, prototypes, firmware, and
+          production-ready devices.</p>
       </div>
       <div class="grid grid-cols-2 gap-3 mb-7">
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Product Requirement Analysis</div>
@@ -576,17 +852,23 @@
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Hardware Testing &amp; Validation</div>
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Manufacturing Support</div>
       </div>
-      <button onclick="closeModal('modal-idea');openContact();" class="w-full text-center bg-brand text-white font-semibold py-4 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire Us For This →</button>
+      <button onclick="closeModal('modal-idea');openContact();"
+        class="w-full text-center bg-brand text-white font-semibold py-4 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire
+        Us For This →</button>
     </div>
   </div>
 
   <div id="modal-iot" class="modal-overlay" onclick="closeOutside(event,'modal-iot')">
     <div class="bg-white rounded-2xl max-w-xl w-full p-10 relative max-h-[90vh] overflow-y-auto shadow-2xl">
-      <button onclick="closeModal('modal-iot')" class="absolute top-5 right-6 text-slate-400 hover:text-slate-700 text-3xl bg-transparent border-none cursor-pointer leading-none">×</button>
+      <button onclick="closeModal('modal-iot')"
+        class="absolute top-5 right-6 text-slate-400 hover:text-slate-700 text-3xl bg-transparent border-none cursor-pointer leading-none">×</button>
       <div class="text-center mb-7">
-        <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">📡</div>
+        <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">📡
+        </div>
         <h3 class="font-extrabold text-2xl mb-3">IoT Solutions</h3>
-        <p class="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto">We design end-to-end IoT systems — from low-power edge nodes to secure cloud back-ends and live dashboards. Wi-Fi, BLE, LoRa, or cellular — built-in OTA updates and analytics.</p>
+        <p class="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto">We design end-to-end IoT systems — from
+          low-power edge nodes to secure cloud back-ends and live dashboards. Wi-Fi, BLE, LoRa, or cellular — built-in
+          OTA updates and analytics.</p>
       </div>
       <div class="grid grid-cols-2 gap-3 mb-7">
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Wi-Fi / BLE / LoRa Devices</div>
@@ -596,17 +878,23 @@
         <div class="check-pill"><span class="text-brand font-bold">✓</span> OTA Firmware Updates</div>
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Data Analytics Dashboards</div>
       </div>
-      <button onclick="closeModal('modal-iot');openContact();" class="w-full text-center bg-brand text-white font-semibold py-4 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire Us For This →</button>
+      <button onclick="closeModal('modal-iot');openContact();"
+        class="w-full text-center bg-brand text-white font-semibold py-4 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire
+        Us For This →</button>
     </div>
   </div>
 
   <div id="modal-pcb" class="modal-overlay" onclick="closeOutside(event,'modal-pcb')">
     <div class="bg-white rounded-2xl max-w-xl w-full p-10 relative max-h-[90vh] overflow-y-auto shadow-2xl">
-      <button onclick="closeModal('modal-pcb')" class="absolute top-5 right-6 text-slate-400 hover:text-slate-700 text-3xl bg-transparent border-none cursor-pointer leading-none">×</button>
+      <button onclick="closeModal('modal-pcb')"
+        class="absolute top-5 right-6 text-slate-400 hover:text-slate-700 text-3xl bg-transparent border-none cursor-pointer leading-none">×</button>
       <div class="text-center mb-7">
-        <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">🖥️</div>
+        <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">🖥️
+        </div>
         <h3 class="font-extrabold text-2xl mb-3">PCB Design Service</h3>
-        <p class="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto">Professional schematic capture and multilayer PCB layout — 2-layer to high-speed RF designs. Every board reviewed for DFM/DFA, delivered with Gerbers, BOM, and assembly files.</p>
+        <p class="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto">Professional schematic capture and multilayer
+          PCB layout — 2-layer to high-speed RF designs. Every board reviewed for DFM/DFA, delivered with Gerbers, BOM,
+          and assembly files.</p>
       </div>
       <div class="grid grid-cols-2 gap-3 mb-7">
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Schematic Design</div>
@@ -616,17 +904,23 @@
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Design Verification</div>
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Prototype Support</div>
       </div>
-      <button onclick="closeModal('modal-pcb');openContact();" class="w-full text-center bg-brand text-white font-semibold py-4 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire Us For This →</button>
+      <button onclick="closeModal('modal-pcb');openContact();"
+        class="w-full text-center bg-brand text-white font-semibold py-4 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire
+        Us For This →</button>
     </div>
   </div>
 
   <div id="modal-embedded" class="modal-overlay" onclick="closeOutside(event,'modal-embedded')">
     <div class="bg-white rounded-2xl max-w-xl w-full p-10 relative max-h-[90vh] overflow-y-auto shadow-2xl">
-      <button onclick="closeModal('modal-embedded')" class="absolute top-5 right-6 text-slate-400 hover:text-slate-700 text-3xl bg-transparent border-none cursor-pointer leading-none">×</button>
+      <button onclick="closeModal('modal-embedded')"
+        class="absolute top-5 right-6 text-slate-400 hover:text-slate-700 text-3xl bg-transparent border-none cursor-pointer leading-none">×</button>
       <div class="text-center mb-7">
-        <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">⚙️</div>
+        <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">⚙️
+        </div>
         <h3 class="font-extrabold text-2xl mb-3">Embedded Solution</h3>
-        <p class="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto">Robust firmware for STM32, ESP32, Nordic, PIC, and Linux platforms. Bare-metal &amp; RTOS code, custom drivers and protocol stacks, tuned for low power.</p>
+        <p class="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto">Robust firmware for STM32, ESP32, Nordic,
+          PIC, and Linux platforms. Bare-metal &amp; RTOS code, custom drivers and protocol stacks, tuned for low power.
+        </p>
       </div>
       <div class="grid grid-cols-2 gap-3 mb-7">
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Firmware Development</div>
@@ -634,9 +928,12 @@
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Microcontroller-Based System Design</div>
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Microprocessor-Based Solutions</div>
         <div class="check-pill"><span class="text-brand font-bold">✓</span> Sensor &amp; Peripheral Integration</div>
-        <div class="check-pill"><span class="text-brand font-bold">✓</span> Communication Protocol Development (UART, SPI, I²C, CAN, USB)</div>
+        <div class="check-pill"><span class="text-brand font-bold">✓</span> Communication Protocol Development (UART,
+          SPI, I²C, CAN, USB)</div>
       </div>
-      <button onclick="closeModal('modal-embedded');openContact();" class="w-full text-center bg-brand text-white font-semibold py-4 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire Us For This →</button>
+      <button onclick="closeModal('modal-embedded');openContact();"
+        class="w-full text-center bg-brand text-white font-semibold py-4 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer">Hire
+        Us For This →</button>
     </div>
   </div>
 
@@ -647,12 +944,12 @@
     <!-- Prev / Next in lightbox -->
     <button id="pm-lb-prev" onclick="pmLbSlide(-1)"
       style="position:absolute;left:20px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:none;color:white;font-size:28px;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);transition:background .2s;"
-      onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'"
-      aria-label="Previous image">&#8249;</button>
+      onmouseover="this.style.background='rgba(255,255,255,0.25)'"
+      onmouseout="this.style.background='rgba(255,255,255,0.12)'" aria-label="Previous image">&#8249;</button>
     <button id="pm-lb-next" onclick="pmLbSlide(1)"
       style="position:absolute;right:20px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:none;color:white;font-size:28px;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);transition:background .2s;"
-      onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'"
-      aria-label="Next image">&#8250;</button>
+      onmouseover="this.style.background='rgba(255,255,255,0.25)'"
+      onmouseout="this.style.background='rgba(255,255,255,0.12)'" aria-label="Next image">&#8250;</button>
     <div id="pm-lb-caption"></div>
   </div>
 
@@ -676,8 +973,8 @@
         if (data.success) {
           document.getElementById('cfSuccess').classList.remove('hidden');
           document.getElementById('cfError').classList.add('hidden');
-          ['cf_name','cf_email','cf_phone','cf_timeline','cf_message'].forEach(id => document.getElementById(id).value = '');
-          ['cf_contact','cf_project','cf_budget'].forEach(id => document.getElementById(id).selectedIndex = 0);
+          ['cf_name', 'cf_email', 'cf_phone', 'cf_timeline', 'cf_message'].forEach(id => document.getElementById(id).value = '');
+          ['cf_contact', 'cf_project', 'cf_budget'].forEach(id => document.getElementById(id).selectedIndex = 0);
         } else { throw new Error(data.message); }
       } catch (e) {
         document.getElementById('cfError').classList.remove('hidden');
@@ -701,8 +998,8 @@
         if (data.success) {
           document.getElementById('secSuccess').classList.remove('hidden');
           document.getElementById('secError').classList.add('hidden');
-          ['sec_name','sec_email','sec_phone','sec_timeline','sec_message'].forEach(id => document.getElementById(id).value = '');
-          ['sec_contact','sec_project','sec_budget'].forEach(id => document.getElementById(id).selectedIndex = 0);
+          ['sec_name', 'sec_email', 'sec_phone', 'sec_timeline', 'sec_message'].forEach(id => document.getElementById(id).value = '');
+          ['sec_contact', 'sec_project', 'sec_budget'].forEach(id => document.getElementById(id).selectedIndex = 0);
         } else { throw new Error(data.message); }
       } catch (e) {
         document.getElementById('secError').classList.remove('hidden');
@@ -788,9 +1085,9 @@
       const p = projects[idx];
       const statusColor = p.status === 'Shipped' ? 'bg-green-100 text-green-700'
         : p.status === 'In Production' ? 'bg-blue-100 text-blue-700'
-        : p.status === 'Delivered' ? 'bg-purple-100 text-purple-700'
-        : p.status === 'In Development' ? 'bg-orange-100 text-orange-700'
-        : 'bg-yellow-100 text-yellow-700';
+          : p.status === 'Delivered' ? 'bg-purple-100 text-purple-700'
+            : p.status === 'In Development' ? 'bg-orange-100 text-orange-700'
+              : 'bg-yellow-100 text-yellow-700';
       // Support imgs array (2 images) or fall back to single img duplicated
       const imgs = (p.imgs && p.imgs.length >= 1) ? p.imgs : [p.img, p.img];
       const imgCount = imgs.length;
@@ -805,88 +1102,88 @@
       ).join('');
 
       document.getElementById('projModal').innerHTML = `
-      <div class="bg-white rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden max-h-[92vh] overflow-y-auto">
+        <div class="bg-white rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden max-h-[92vh] overflow-y-auto">
 
-        <!-- IMAGE SLIDER -->
-        <div class="relative overflow-hidden" style="height:220px;">
-          <!-- Sliding track -->
-          <div id="pm-slides" style="display:flex;width:${imgCount * 100}%;height:100%;transition:transform .35s cubic-bezier(.4,0,.2,1);">
-            ${imgs.map((src, i) => `<img src="${src}" alt="${p.name} photo ${i+1}" style="width:${100/imgCount}%;height:100%;object-fit:cover;flex-shrink:0;cursor:zoom-in;" onclick="pmOpenFull(${i})" title="Click to view full image" />`).join('')}
-          </div>
-
-          <!-- Gradient overlay (non-interactive) -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-
-          <!-- Prev arrow (only if >1 image) -->
-          ${imgCount > 1 ? `<button onclick="pmSlide(-1)"
-            class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/85 hover:bg-white flex items-center justify-center border-none cursor-pointer text-slate-700 text-xl font-bold shadow-md transition-all hover:scale-105"
-            aria-label="Previous image">&#8249;</button>` : ''}
-
-          <!-- Next arrow (only if >1 image) -->
-          ${imgCount > 1 ? `<button onclick="pmSlide(1)"
-            class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/85 hover:bg-white flex items-center justify-center border-none cursor-pointer text-slate-700 text-xl font-bold shadow-md transition-all hover:scale-105"
-            aria-label="Next image">&#8250;</button>` : ''}
-
-          <!-- Dot indicators -->
-          ${imgCount > 1 ? `<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-2 pointer-events-none">${dots}</div>` : ''}
-
-          <!-- Image counter badge -->
-          ${imgCount > 1 ? `<div id="pm-counter" class="absolute bottom-12 right-4 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full pointer-events-none">1 / ${imgCount}</div>` : ''}
-
-          <!-- View Full Image button — bottom centre -->
-          <button onclick="pmOpenFull(pmCurrentSlide)"
-            class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/55 hover:bg-black/80 text-white text-xs font-semibold px-4 py-1.5 rounded-full border-none cursor-pointer transition-all backdrop-blur-sm"
-            style="z-index:10;">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-            View Full Image
-          </button>
-
-          <!-- Close button -->
-          <button onclick="document.getElementById('modal-project').classList.remove('open');document.body.style.overflow='';"
-            class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-slate-600 hover:text-slate-900 border-none cursor-pointer text-xl font-bold shadow">×</button>
-
-          <!-- Emoji badge -->
-          <div class="absolute bottom-3 left-4 w-12 h-12 rounded-xl ${p.bg} flex items-center justify-center text-2xl shadow">${p.emoji}</div>
-        </div>
-
-        <!-- CONTENT -->
-        <div class="p-7">
-          <div class="flex items-start justify-between gap-4 mb-1 flex-wrap">
-            <div>
-              <p class="text-xs text-slate-400 font-semibold tracking-widest mb-1">${p.tag}</p>
-              <h3 class="font-extrabold text-2xl text-slate-900">${p.name}</h3>
+          <!-- IMAGE SLIDER -->
+          <div class="relative overflow-hidden" style="height:220px;">
+            <!-- Sliding track -->
+            <div id="pm-slides" style="display:flex;width:${imgCount * 100}%;height:100%;transition:transform .35s cubic-bezier(.4,0,.2,1);">
+              ${imgs.map((src, i) => `<img src="${src}" alt="${p.name} photo ${i + 1}" style="width:${100 / imgCount}%;height:100%;object-fit:cover;flex-shrink:0;cursor:zoom-in;" onclick="pmOpenFull(${i})" title="Click to view full image" />`).join('')}
             </div>
-            <span class="text-xs font-semibold px-3 py-1.5 rounded-full ${statusColor} mt-1 whitespace-nowrap">${p.status}</span>
+
+            <!-- Gradient overlay (non-interactive) -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+
+            <!-- Prev arrow (only if >1 image) -->
+            ${imgCount > 1 ? `<button onclick="pmSlide(-1)"
+              class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/85 hover:bg-white flex items-center justify-center border-none cursor-pointer text-slate-700 text-xl font-bold shadow-md transition-all hover:scale-105"
+              aria-label="Previous image">&#8249;</button>` : ''}
+
+            <!-- Next arrow (only if >1 image) -->
+            ${imgCount > 1 ? `<button onclick="pmSlide(1)"
+              class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/85 hover:bg-white flex items-center justify-center border-none cursor-pointer text-slate-700 text-xl font-bold shadow-md transition-all hover:scale-105"
+              aria-label="Next image">&#8250;</button>` : ''}
+
+            <!-- Dot indicators -->
+            ${imgCount > 1 ? `<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-2 pointer-events-none">${dots}</div>` : ''}
+
+            <!-- Image counter badge -->
+            ${imgCount > 1 ? `<div id="pm-counter" class="absolute bottom-12 right-4 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full pointer-events-none">1 / ${imgCount}</div>` : ''}
+
+            <!-- View Full Image button — bottom centre -->
+            <button onclick="pmOpenFull(pmCurrentSlide)"
+              class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/55 hover:bg-black/80 text-white text-xs font-semibold px-4 py-1.5 rounded-full border-none cursor-pointer transition-all backdrop-blur-sm"
+              style="z-index:10;">
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              View Full Image
+            </button>
+
+            <!-- Close button -->
+            <button onclick="document.getElementById('modal-project').classList.remove('open');document.body.style.overflow='';"
+              class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-slate-600 hover:text-slate-900 border-none cursor-pointer text-xl font-bold shadow">×</button>
+
+            <!-- Emoji badge -->
+            <div class="absolute bottom-3 left-4 w-12 h-12 rounded-xl ${p.bg} flex items-center justify-center text-2xl shadow">${p.emoji}</div>
           </div>
-          <div class="flex gap-5 text-xs text-slate-400 font-medium mb-5 mt-2 flex-wrap">
-            <span>🏢 ${p.client}</span>
-            <span>⏱ ${p.duration}</span>
-          </div>
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">${p.desc}</p>
-          <div class="mb-6">
-            <p class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-3">Tech Stack</p>
-            <div class="flex flex-wrap gap-2">
-              ${p.tech.map(t => `<span class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full">${t}</span>`).join('')}
+
+          <!-- CONTENT -->
+          <div class="p-7">
+            <div class="flex items-start justify-between gap-4 mb-1 flex-wrap">
+              <div>
+                <p class="text-xs text-slate-400 font-semibold tracking-widest mb-1">${p.tag}</p>
+                <h3 class="font-extrabold text-2xl text-slate-900">${p.name}</h3>
+              </div>
+              <span class="text-xs font-semibold px-3 py-1.5 rounded-full ${statusColor} mt-1 whitespace-nowrap">${p.status}</span>
             </div>
-          </div>
-          <div class="mb-7">
-            <p class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-3">Key Highlights</p>
-            <div class="grid grid-cols-2 gap-2">
-              ${p.highlights.map(h => `<div class="flex items-center gap-2 text-sm text-slate-700"><span class="w-5 h-5 rounded-full bg-brand flex items-center justify-center text-white text-xs flex-shrink-0 font-bold">✓</span>${h}</div>`).join('')}
+            <div class="flex gap-5 text-xs text-slate-400 font-medium mb-5 mt-2 flex-wrap">
+              <span>🏢 ${p.client}</span>
+              <span>⏱ ${p.duration}</span>
             </div>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">${p.desc}</p>
+            <div class="mb-6">
+              <p class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-3">Tech Stack</p>
+              <div class="flex flex-wrap gap-2">
+                ${p.tech.map(t => `<span class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full">${t}</span>`).join('')}
+              </div>
+            </div>
+            <div class="mb-7">
+              <p class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-3">Key Highlights</p>
+              <div class="grid grid-cols-2 gap-2">
+                ${p.highlights.map(h => `<div class="flex items-center gap-2 text-sm text-slate-700"><span class="w-5 h-5 rounded-full bg-brand flex items-center justify-center text-white text-xs flex-shrink-0 font-bold">✓</span>${h}</div>`).join('')}
+              </div>
+            </div>
+            <button onclick="document.getElementById('modal-project').classList.remove('open');document.body.style.overflow='';openContact();"
+              class="w-full bg-brand text-white font-semibold py-3.5 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer text-sm">
+              Start a Similar Project →
+            </button>
           </div>
-          <button onclick="document.getElementById('modal-project').classList.remove('open');document.body.style.overflow='';openContact();"
-            class="w-full bg-brand text-white font-semibold py-3.5 rounded-full hover:bg-brand-dark transition-colors border-none cursor-pointer text-sm">
-            Start a Similar Project →
-          </button>
-        </div>
-      </div>`;
+        </div>`;
 
       // Slider state scoped via closure
       let pmCurrentSlide = 0;
       window.pmCurrentSlide = 0;
 
-      window.pmSlide = function(dir) {
+      window.pmSlide = function (dir) {
         pmCurrentSlide = (pmCurrentSlide + dir + imgCount) % imgCount;
         window.pmCurrentSlide = pmCurrentSlide;
         document.getElementById('pm-slides').style.transform = `translateX(-${pmCurrentSlide * (100 / imgCount)}%)`;
@@ -919,13 +1216,13 @@
       slice.forEach(p => {
         const realIdx = projects.indexOf(p);
         grid.innerHTML += `<div onclick="openProjectModal(${realIdx})" class="bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer group">
-          <div class="h-28 ${p.bg} flex items-center justify-center text-4xl group-hover:scale-110 transition-transform">${p.emoji}</div>
-          <div class="p-4">
-            <p class="text-xs text-slate-400 font-semibold tracking-wide mb-1">${p.tag}</p>
-            <h4 class="font-bold text-sm text-slate-900 mb-1">${p.name}</h4>
-            <p class="text-xs text-brand font-medium">View details →</p>
-          </div>
-        </div>`;
+            <div class="h-28 ${p.bg} flex items-center justify-center text-4xl group-hover:scale-110 transition-transform">${p.emoji}</div>
+            <div class="p-4">
+              <p class="text-xs text-slate-400 font-semibold tracking-wide mb-1">${p.tag}</p>
+              <h4 class="font-bold text-sm text-slate-900 mb-1">${p.name}</h4>
+              <p class="text-xs text-brand font-medium">View details →</p>
+            </div>
+          </div>`;
       });
       if (list.length > visibleCount) {
         const remaining = list.length - visibleCount;
@@ -948,4 +1245,5 @@
     loadProjects();
   </script>
 </body>
+
 </html>
