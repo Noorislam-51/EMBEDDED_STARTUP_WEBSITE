@@ -1,24 +1,22 @@
 {
   "projects": [
-   
     {
       "cat": "idea",
       "emoji": "🚦",
-      "tag": "Idea → HW · 8051",
+      "tag": "Idea → HW · Arduino",
       "name": "Traffic Light System",
       "bg": "bg-yellow-100",
       "client": "Internal Project",
       "duration": "3 months",
       "status": "In Production",
-      "img": "https://images.unsplash.com/photo-1558618047-f4e50c72e04e?w=600&q=80",
       "imgs": [
         "./img/Arduino projects_page-0001.jpg",
         "./img/Image to PDF 20260530 17.15.45 (1)_page-0001.jpg"
       ],
       "link": "#",
-      "desc": "A 4-way intersection traffic light controller built on the 8051 microcontroller using a timer-based state machine. Manages Red/Yellow/Green phase sequencing with a pedestrian override via external interrupt and configurable phase durations stored in EEPROM.",
-      "tech": ["8051 MCU", "GPIO", "Timer ISR", "EEPROM", "7-segment Display"],
-      "highlights": ["4-way intersection control", "Pedestrian push-button override", "EEPROM phase config", "Interrupt-driven sequencing"]
+      "desc": "A traffic light controller built on Arduino Uno using three LEDs (Red, Yellow, Green) on a breadboard, each driven through a current-limiting resistor. Digital output pins sequence the light phases with timed delays, simulating a real-world intersection signal cycle.",
+      "tech": ["Arduino Uno", "Red/Yellow/Green LEDs", "Current-Limiting Resistors", "Breadboard", "Digital GPIO"],
+      "highlights": ["3-phase LED sequencing", "Timed delay state machine", "Resistor-protected GPIO outputs", "Breadboard prototype build"]
     },
     {
       "cat": "idea",
@@ -29,15 +27,13 @@
       "client": "Internal Project",
       "duration": "2.5 months",
       "status": "In Production",
-      "img": "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&q=80",
       "imgs": [
-        "./img/Arduino projects_page-0002.jpg",
-        "./img/Image to PDF 20260530 17.15.45 (1)_page-0002.jpg"
+        "./img/Arduino projects_page-0002.jpg"
       ],
       "link": "#",
-      "desc": "Intrusion detection system using PIR and vibration sensors wired to an Arduino. Triggers a relay-driven siren on detection and sends SMS alerts via a SIM800L GSM module. Armed and disarmed with an RFID RC522 tag, with tamper-detect on power cut.",
-      "tech": ["Arduino Uno", "SIM800L GSM", "PIR HC-SR501", "RFID RC522", "Relay Module"],
-      "highlights": ["Dual PIR + vibration sensing", "SMS alert via GSM", "RFID arm/disarm", "Power-cut tamper detect"]
+      "desc": "Vehicle intrusion alarm using an Arduino Uno with a force/pressure sensor to detect impact or tampering on the vehicle body. A potentiometer sets the sensitivity threshold; when triggered, a piezo buzzer sounds the alarm. Alarm state and sensor readings are shown on a 16×2 I2C LCD, with an LED as a visual armed/alert indicator.",
+      "tech": ["Arduino Uno", "Force/Pressure Sensor", "Potentiometer", "Piezo Buzzer", "16×2 I2C LCD", "LED Indicator"],
+      "highlights": ["Force/pressure vehicle impact detection", "Potentiometer-adjustable sensitivity", "Piezo buzzer alarm trigger", "LCD armed/alert status display"]
     },
     {
       "cat": "idea",
@@ -54,9 +50,9 @@
         "./img/Image to PDF 20260530 17.15.45 (1)_page-0003.jpg"
       ],
       "link": "#",
-      "desc": "Automated field irrigation system triggered by capacitive soil moisture sensors with a DS3231 RTC for scheduled watering windows. A relay-driven pump activates based on moisture thresholds, with LCD status display. Manual override available; dry-condition auto-override built in.",
-      "tech": ["Arduino", "Capacitive Soil Sensor", "DS3231 RTC", "16×2 LCD", "Relay Module"],
-      "highlights": ["Capacitive soil moisture sensing", "RTC-scheduled watering", "Auto dry-condition override", "LCD status display"]
+      "desc": "Automated irrigation system using a resistive soil moisture sensor connected to Arduino's analog input. A relay module switches a 9V-powered DC water pump motor based on moisture thresholds. Green and Red LEDs indicate pump on/off status, with manual override via a push button.",
+      "tech": ["Arduino Uno", "Resistive Soil Moisture Sensor", "Relay Module", "DC Water Pump Motor", "9V Battery", "Green/Red LEDs"],
+      "highlights": ["Analog soil moisture threshold control", "Relay-switched pump activation", "9V external pump power supply", "Green/Red LED status indicators"]
     },
     {
       "cat": "idea",
@@ -73,14 +69,14 @@
         "./img/Image to PDF 20260530 17.15.45 (1)_page-0004.jpg"
       ],
       "link": "#",
-      "desc": "Multi-bay parking availability detector using HC-SR04 ultrasonic sensors per slot. A central Arduino aggregates slot states, displays vacancy count on an I2C LCD, and drives a green/red LED per bay. Expandable to 8 slots via PCF8574 I2C expander.",
-      "tech": ["Arduino", "HC-SR04 Ultrasonic", "I2C LCD", "PCF8574 Expander", "LED Array"],
-      "highlights": ["Per-bay occupancy detection", "Real-time vacancy counter", "I2C expandable to 8 slots", "Green/Red LED per bay"]
+      "desc": "Reverse parking proximity alarm using an HC-SR04 ultrasonic sensor to continuously measure the distance to obstacles behind the vehicle. Distance readings are shown in real time on a 20×4 I2C LCD. As the vehicle approaches an object, a piezo buzzer beeps at increasing frequency and a Red LED lights up to warn the driver before a collision occurs.",
+      "tech": ["Arduino Uno", "HC-SR04 Ultrasonic Sensor", "20×4 I2C LCD", "Piezo Buzzer", "Red LED Indicator", "Breadboard"],
+      "highlights": ["Real-time obstacle distance measurement", "Escalating buzzer beep frequency", "Red LED collision warning", "LCD live distance readout"]
     },
     {
       "cat": "idea",
       "emoji": "🗳️",
-      "tag": "Idea → HW · 8051",
+      "tag": "Idea → HW · Arduino",
       "name": "Voting Machine",
       "bg": "bg-yellow-100",
       "client": "Internal Project",
@@ -92,14 +88,14 @@
         "./img/Image to PDF 20260530 17.15.45 (1)_page-0005.jpg"
       ],
       "link": "#",
-      "desc": "Tamper-resistant electronic voting unit on 8051 with 4-candidate keypad input. Vote counts are stored in external 24C256 EEPROM for non-volatile retention across power cycles. Admin-only result display via password-protected LCD mode. Firmware enforces a one-vote-per-session lock.",
-      "tech": ["8051 MCU", "4×4 Keypad", "24C256 EEPROM", "16×2 LCD", "Password Lock"],
-      "highlights": ["EEPROM non-volatile storage", "Admin password-protected results", "Single-vote-per-session lock", "4-candidate support"]
+      "desc": "Electronic voting unit built on Arduino Uno with 4 dedicated push-button candidates on a breadboard, each paired with a pull-down resistor. Vote tallies are shown on a 20×4 I2C LCD. Red and Green LEDs confirm vote registration, and firmware enforces a one-vote-per-session lock.",
+      "tech": ["Arduino Uno", "4× Push Buttons", "Pull-Down Resistors", "20×4 I2C LCD", "Red/Green LEDs", "Breadboard"],
+      "highlights": ["4-candidate push-button input", "I2C LCD live tally display", "LED vote-confirmation feedback", "Single-vote-per-session lock"]
     },
     {
       "cat": "idea",
       "emoji": "🪴",
-      "tag": "Idea → HW · ESP8266",
+      "tag": "Idea → HW · Arduino",
       "name": "Irrigation Pump for Pot",
       "bg": "bg-yellow-100",
       "client": "Internal Project",
@@ -111,9 +107,9 @@
         "./img/Image to PDF 20260530 17.15.45 (1)_page-0006.jpg"
       ],
       "link": "#",
-      "desc": "Compact indoor plant watering system using a resistive soil moisture probe and a 5V submersible mini-pump driven through a MOSFET switch. DHT11 monitors ambient humidity. ESP8266 hosts a Wi-Fi access point dashboard for threshold tuning and watering history logs.",
-      "tech": ["ESP8266", "DHT11", "MOSFET Switch", "Mini Submersible Pump", "Wi-Fi Dashboard"],
-      "highlights": ["Wi-Fi threshold tuning", "MOSFET-driven pump", "Ambient humidity monitoring", "Watering history log"]
+      "desc": "Compact indoor plant watering system using a resistive soil moisture probe connected to Arduino's analog input. A piezo buzzer alerts when soil is critically dry. A Red LED indicates pump status, and a push button provides manual override. Threshold adjustment is done via code configuration.",
+      "tech": ["Arduino Uno", "Resistive Soil Moisture Sensor", "Piezo Buzzer", "Red LED Indicator", "Push Button", "Analog Input"],
+      "highlights": ["Analog moisture threshold detection", "Piezo dry-soil alert", "Manual push-button override", "LED pump-status indicator"]
     },
     {
       "cat": "idea",
@@ -130,10 +126,10 @@
         "./img/Image to PDF 20260530 17.15.45 (1)_page-0007.jpg"
       ],
       "link": "#",
-      "desc": "Dual-sensor fire detection combining an MQ-2 smoke/LPG sensor and LM35 temperature IC. Alarm triggers a piezo buzzer and activates a relay for an external siren or sprinkler. SIM800L GSM module sends SMS backup after a 10-second debounce window on sustained alert.",
-      "tech": ["Arduino", "MQ-2 Smoke Sensor", "LM35 Temp IC", "SIM800L GSM", "Relay + Piezo"],
-      "highlights": ["Dual smoke + temperature sensing", "10s debounce logic", "GSM SMS backup alert", "Relay for siren/sprinkler"]
-    },  
+      "desc": "Dual-sensor fire detection system combining an MQ-series gas/smoke sensor and an LM35 temperature sensor, with readings displayed on a 16×2 LCD. A potentiometer sets the alarm threshold; on trigger, a piezo buzzer sounds and a relay activates an external siren or sprinkler. A Green LED indicates system-armed status.",
+      "tech": ["Arduino Uno", "MQ Gas/Smoke Sensor", "LM35 Temperature Sensor", "16×2 LCD", "Piezo Buzzer", "Relay Module", "Potentiometer"],
+      "highlights": ["Dual gas + temperature sensing", "Potentiometer-adjustable threshold", "Relay output for siren/sprinkler", "LCD real-time sensor readout"]
+    },
     {
       "cat": "idea",
       "emoji": "⚡",
@@ -149,15 +145,15 @@
         "./img/Image to PDF 20260530 17.15.45 (1)_page-0008.jpg"
       ],
       "link": "#",
-      "desc": "Precision voltage measurement unit using Arduino's 10-bit ADC with a resistive voltage divider scaled for 0–30 V input range. An LM741 op-amp buffer stage prevents load effect on the source. Results displayed on a 16×2 LCD with ±0.1 V accuracy and a configurable over-voltage alert.",
-      "tech": ["Arduino", "LM741 Op-Amp", "Voltage Divider", "10-bit ADC", "16×2 LCD"],
-      "highlights": ["0–30 V input range", "±0.1 V measurement accuracy", "Op-amp buffer stage", "Configurable over-voltage alert"]
+      "desc": "Precision voltage measurement and display unit using Arduino's 10-bit ADC and a potentiometer-based voltage divider for input scaling. Three push buttons allow reprogramming of display parameters and alert thresholds on-the-fly. Readings are shown on a 4-digit 7-segment HT16K33 backpack display via I2C.",
+      "tech": ["Arduino Uno", "Potentiometer (Voltage Divider)", "3× Push Buttons", "4-Digit 7-Segment HT16K33 (I2C)", "10-bit ADC", "Breadboard"],
+      "highlights": ["4-digit 7-segment I2C display", "Potentiometer voltage divider input", "3-button reprogrammable parameters", "Real-time ADC voltage readout"]
     },
     {
       "cat": "idea",
       "emoji": "👁️",
       "tag": "Idea → HW · Arduino",
-      "name": "PIR Motion Street Light",
+      "name": "PIR Motion Sensing Device",
       "bg": "bg-yellow-100",
       "client": "Internal Project",
       "duration": "1.5 months",
@@ -168,9 +164,9 @@
         "./img/Image to PDF 20260530 17.15.45 (1)_page-0009.jpg"
       ],
       "link": "#",
-      "desc": "Passive infrared motion detector using HC-SR501 with adjustable sensitivity and time-delay trimmers. Triggers a relay output for lighting or alarms. OLED display logs motion event count with timestamps from DS1307 RTC. LDR-based day/night suppression mode prevents false triggers in daylight.",
-      "tech": ["Arduino", "HC-SR501 PIR", "DS1307 RTC", "OLED SSD1306", "LDR + Relay"],
-      "highlights": ["Adjustable PIR sensitivity", "RTC-stamped event logging", "Day/night LDR suppression", "OLED event counter"]
+      "desc": "Passive infrared motion sensing device using an HC-SR501 PIR sensor with onboard adjustable sensitivity and time-delay trimmers. Detected motion triggers a relay output and is timestamped by an RTC module. A large LDR resistor array on the breadboard provides ambient light level sensing to enable day/night aware detection logic.",
+      "tech": ["Arduino Uno", "HC-SR501 PIR Sensor", "RTC Module", "Relay Module", "LDR Resistor Array", "Breadboard"],
+      "highlights": ["Adjustable PIR sensitivity + time-delay", "Relay output on motion detect", "RTC motion event timestamping", "LDR ambient light level sensing"]
     },
     {
       "cat": "idea",
@@ -187,9 +183,9 @@
         "./img/Image to PDF 20260530 17.15.45 (1)_page-0010.jpg"
       ],
       "link": "#",
-      "desc": "Dual-axis solar panel tracker using 4 LDRs in a cross-configuration to detect light intensity differential. Two servo motors adjust azimuth and elevation via a PID control loop. Harvested panel current is logged to an SD card with timestamps for daily efficiency analysis.",
-      "tech": ["Arduino", "4× LDR Array", "2× Servo Motors", "PID Controller", "SD Card Module"],
-      "highlights": ["Dual-axis azimuth + elevation", "LDR differential sensing", "PID servo control loop", "SD card efficiency logging"]
+      "desc": "Dual-axis solar panel tracker using 4 LDRs arranged in a cross configuration on a breadboard to detect light intensity differential. Two servo motors (horizontal and vertical) are controlled via a threshold-based algorithm (posH/posV angle variables) to align the panel toward peak sunlight. A multimeter measures harvested panel output current in real time. Simulated and validated in Tinkercad with full Arduino sketch.",
+      "tech": ["Arduino Uno", "4× LDR Sensors", "2× Servo Motors", "Resistor Voltage Dividers", "Multimeter (Output Monitor)", "Tinkercad Simulation"],
+      "highlights": ["Dual-axis horizontal + vertical tracking", "4-LDR differential light sensing", "Threshold-based servo angle control", "Real-time panel output monitoring"]
     }
   ]
 }
